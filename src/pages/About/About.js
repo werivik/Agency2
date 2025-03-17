@@ -1,0 +1,1 @@
+/* This is the About Page, here anybody can view what the fake company is about*/

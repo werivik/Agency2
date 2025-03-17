@@ -1,0 +1,25 @@
+# Node modules
+node_modules/
+
+# Parcel cache
+.cache/
+
+# Build output
+dist/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Parcel-specific
+.parcel-cache/
+
+# Miscellaneous
+.DS_Store
+Thumbs.db

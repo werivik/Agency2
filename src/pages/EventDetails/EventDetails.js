@@ -1,0 +1,1 @@
+/* This is the Event Details Page, here anybody can view a events details such as time, place, how many have Favorited and commented*/

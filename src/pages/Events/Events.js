@@ -1,0 +1,1 @@
+/* This is the All Events Page, here anybody can view all Events*/
