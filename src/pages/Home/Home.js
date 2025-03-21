@@ -46,10 +46,64 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className={styles.filterSection}>
+            <section className={styles.tagSection}>
+                <div className={styles.tagTitle}>
+                    <h2>Try out New Adventures in <br></br>Bergen City</h2>
+                </div>
+                <div className={styles.tagContent}>
+                    <div className={styles.tagList}>
+                        <div className={styles.tagBorder}>
+                            <div className={styles.tagInside}>
+                                <i class="fa-solid fa-martini-glass-citrus"></i>
+                            </div>
+                        </div>
+                        <div className={styles.tagBorder}>
+                            <div className={styles.tagInside}>
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
+                        </div>
+                        <div className={styles.tagBorder}>
+                            <div className={styles.tagInside}>
+                                <i class="fa-solid fa-masks-theater"></i>
+                            </div>
+                        </div>
+                        <div className={styles.tagBorder}>
+                            <div className={styles.tagInside}>
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                        </div>
+                        <div className={styles.tagBorder}>
+                            <div className={styles.tagInside}>
+                                <i class="fa-solid fa-tree"></i>
+                            </div>
+                        </div>
+                        <div className={styles.tagBorder}>
+                            <div className={styles.tagInside}>
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                        </div>
+                        <div className={styles.tagBorder}>
+                            <div className={styles.tagInside}>
+                                <i class="fa-solid fa-video"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section className={styles.eventSection}>
+                <div className={styles.eventBorder}>
+                    <div className={styles.eventSectionTitle}>
+                        <h2>Popular Events</h2>
+                    </div>
+                    <div className={styles.eventContent}>
+                        <div className={styles.popularEvent}>
+                            <div className={styles.peTime}></div>
+                        </div>
+                        <div className={styles.PopularEvent}>
+                        </div>
+                    </div>
+                </div>
             </section>
 
         </div>
