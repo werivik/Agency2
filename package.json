@@ -1,14 +1,35 @@
 {
+<<<<<<< HEAD
   "name": "Agency2",
   "version": "1.0.0",
   "scripts": {
     "start": "parcel public/index.html",
     "build": "parcel build public/index.html"
+=======
+  "name": "agency2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/werivik/Agency2.git"
+>>>>>>> main
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
   "description": "",
+=======
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/werivik/Agency2/issues"
+  },
+  "homepage": "https://github.com/werivik/Agency2#readme",
+>>>>>>> main
   "dependencies": {
     "latest": "^0.2.0",
     "netlify": "^13.3.3",
@@ -18,10 +39,15 @@
     "react-dom": "^19.0.0",
     "react-router": "^7.4.0",
     "react-router-dom": "^6.30.0",
+<<<<<<< HEAD
     "styled-components": "^6.1.15"
   },
   "devDependencies": {
     "parcel": "^2.13.3",
     "process": "^0.11.10"
+=======
+    "styled-components": "^6.1.15",
+    "firebase": "^11.4.0"
+>>>>>>> main
   }
 }
