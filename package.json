@@ -19,6 +19,15 @@
   },
   "homepage": "https://github.com/werivik/Agency2#readme",
   "dependencies": {
+    "latest": "^0.2.0",
+    "netlify": "^13.3.3",
+    "netlify-cli": "^19.0.2",
+    "node": "^23.8.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router": "^7.4.0",
+    "react-router-dom": "^6.30.0",
+    "styled-components": "^6.1.15",
     "firebase": "^11.4.0"
   }
 }
