@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import styles from './Home.module.css';
 import bannerImage from '/media/gallery/bergensentrum.jpg';
 import bannerLogo from '/media/logo/Logo.png';
+import mapImage from '/media/gallery/bergenmap.png';
 
 const Home = () => {
     return (
@@ -28,6 +29,21 @@ const Home = () => {
             </section>
 
             <section className={styles.mapSection}>
+                <div className={styles.mapBorder}>
+                    <div className={styles.mapContent}>
+                        <div className={styles.mapLeft}>
+                            <img src={mapImage} alt="Bergen Sentrum" className={styles.mapImage} ></img>
+                        </div>
+                        <div className={styles.mapRight}>
+                            <div className={styles.mapRightContect}>
+                                <p>The Velvet Barrel <span className={styles.open}>OPEN!</span></p>
+                                <p>Moonlit Lounge <span className={styles.close}>CLOSED!</span></p>
+                                <p>The Tipsy Toad <span className={styles.close}>CLOSED!</span></p>
+                                <p>High Tide Tavern <span className={styles.open}>OPEN!</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section className={styles.filterSection}>
