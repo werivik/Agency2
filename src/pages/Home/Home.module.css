@@ -232,9 +232,70 @@
     position: relative;
 }
 
-.PopularEvent {
+.popularEvent {
     width: 300px;
     height: 422px;
-    background-color: #E07A5F;
+    -webkit-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);    
     border-radius: 25px;
+    position: relative;
+}
+
+.peContent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: ease-in-out 0.25s;
+}
+
+.peInfo {
+    position: absolute;
+    background-color: #FCFBF6;
+    bottom: 0;
+    width: 97%;
+    height: 110px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 0px 0px 24px 24px;
+}
+
+.peTime {
+    background-color: #2B266F;
+    width: 100px;
+    height: 25px;
+    padding: 10px;
+    border-radius: 24px 0px 25px;
+    color: white;
+    font-size: 20px;
+}
+
+.peRightSide {
+    position: absolute;
+    background-color: #E07A5F;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    border-radius: 0px 24px 24px 0px;
+}
+
+.peImage {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.popularEvent:hover {
+    transition: ease-in-out 0.25s;
+    cursor: pointer;
+
+    .peInfo {
+        transition: ease-in-out 0.25s;
+        height: 130px;
+    }
 }

@@ -6,6 +6,7 @@ import styles from './Home.module.css';
 import bannerImage from '/media/gallery/bergensentrum.jpg';
 import bannerLogo from '/media/logo/Logo.png';
 import mapImage from '/media/gallery/bergenmap.png';
+import peImage from '/media/gallery/party.jpeg';
 
 const Home = () => {
     return (
@@ -97,11 +98,23 @@ const Home = () => {
                         <h2>Popular Events</h2>
                     </div>
                     <div className={styles.eventContent}>
+
                         <div className={styles.popularEvent}>
-                            <div className={styles.peTime}></div>
+                            <div className={styles.peContent}>
+                                <div className={styles.peInfo}>
+                                    <h3>Bar Name</h3>
+                                    <p>Info For the Bar Biach</p>
+                                </div>
+                                <div className={styles.peTime}>Time</div>
+                               <div className={styles.peRightSide}>
+                               </div>
+                            </div> 
+                            <img src={peImage} alt="Party" className={styles.peImage} ></img>                           
                         </div>
+
                         <div className={styles.PopularEvent}>
                         </div>
+
                     </div>
                 </div>
             </section>
