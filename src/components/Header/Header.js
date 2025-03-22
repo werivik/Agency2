@@ -8,10 +8,10 @@ function Header() {
       <nav>
         <Link to="/" className={styles.logo}><img src={headerLogo} alt="The Spot Logo" className={styles.headerLogo}></img></Link>
         <ul>
-          <Link to="/" className={styles.logo}>Home</Link>
-          <Link to="/" className={styles.logo}>Login</Link>
-          <Link to="/" className={styles.logo}>About us</Link>
-          <Link to="/" className={styles.logo}>Contact</Link>
+          <Link to="/" >Home</Link>
+          <Link to="/login" >Login</Link>
+          <Link to="/about" >About us</Link>
+          <Link to="/contact" >Contact</Link>
         </ul>
       </nav>
     </header>
