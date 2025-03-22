@@ -1,0 +1,39 @@
+header {
+    background-color: #2B266F;
+    width: 100%;
+    height: 90px;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+ul a {
+    color: white;
+    text-decoration: none;
+}
+
+.headerLogo {
+    height: 90px;
+    width: 90px;
+    object-fit: contain;
+}

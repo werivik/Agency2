@@ -1,8 +1,20 @@
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import './index.css';
+
+createRoot(document.getElementById('root')).render(< App />);
   // Import the functions you need from the SDKs you need
+  import { initializeApp } from "firebase/app";
+  import { getAnalytics } from "firebase/analytics";
+  import { getAuth } from "firebase/auth";
+  import { getDatabase, ref, push, set, get, update, remove, serverTimestamp } from "firebase/database";
+
+  /*
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
   import { getAuth } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
   import { getDatabase, ref, push, set, get, update, remove, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+  */
   
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,8 +36,12 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const auth = getAuth(app);
+  const database = getDatabase(app);
+
+  export { app, analytics, auth, database, ref, push, set, get, update, remove, serverTimestamp };
 
 // events collection
+/*
 {
   "events": {
     "event_id_1": {
@@ -45,3 +61,4 @@
     // more events...
   }
 }
+*/
