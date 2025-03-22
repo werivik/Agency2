@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 
 function Contact() {
   return (
-    <div>
-    </div>
+    <section className={styles.contactSection}>
+      <div className={styles.contactBorder}>
+      </div>
+    </section>
   );
 }
 
