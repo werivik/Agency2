@@ -75,7 +75,7 @@ const Home = () => {
                             <img src={bannerLogo} alt="The Spot Logo" className={styles.bannerLogo}></img>
                         </div>
                         <div className={styles.bannerRight}>
-                        <h3>Explore Events</h3>
+                        <h3>Upcoming Events</h3>
                         <div className={styles.eventWeekContainer}>
     <div className={styles.eventWeekWrapper}>
         {filteredEvents.length > 0 ? (
