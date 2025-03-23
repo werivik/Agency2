@@ -2,7 +2,7 @@ import styles from './Register.module.css';
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebsae";
+import { auth } from "../../firebase";
 import bannerImage from '/media/gallery/bergensentrum.jpg';
 import registerLogo from '/media/logo/Logo.png';
 

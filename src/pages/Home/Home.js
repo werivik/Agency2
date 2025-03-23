@@ -8,7 +8,37 @@ import bannerLogo from '/media/logo/Logo.png';
 import mapImage from '/media/gallery/bergenmap.png';
 import peImage from '/media/gallery/party.jpeg';
 
+import { db } from '../../firebase';
+import { collection, getDocs } from "firebase/firestore"; 
+
 const Home = () => {
+
+    const [events, setEvents] = useState([]);
+
+    useEffect(() => {
+        const fetchEvents = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, "events"));
+                const eventsList = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setEvents(eventsList);
+            } 
+            
+            catch (error) {
+                console.error("Error fetching events:", error);
+            }
+        };
+
+        fetchEvents();
+    }, []);
+
+    const formatDate = (timestamp) => {
+        const date = timestamp?.toDate();
+        return date ? date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) : "No date available";
+    };
+
     return (
         <div className={styles.homeSections}>
 
@@ -98,23 +128,24 @@ const Home = () => {
                         <h2>Popular Events</h2>
                     </div>
                     <div className={styles.eventContent}>
-
-                        <div className={styles.popularEvent}>
-                            <div className={styles.peContent}>
-                                <div className={styles.peInfo}>
-                                    <h3>Bar Name</h3>
-                                    <p>Info For the Bar Biach</p>
+                        {events.length > 0 ? (
+                            events.map(event => (
+                                <div key={event.id} className={styles.popularEvent}>
+                                    <div className={styles.peContent}>
+                                        <div className={styles.peInfo}>
+                                            <h3>{event.title}</h3>
+                                            <p>{event.description}</p>
+                                        </div>
+                                        <div className={styles.peTime}>
+                                            {formatDate(event.date)}
+                                        </div>
+                                    </div>
+                                    <img src={event.image || peImage} alt="Event" className={styles.peImage} />
                                 </div>
-                                <div className={styles.peTime}>Time</div>
-                               <div className={styles.peRightSide}>
-                               </div>
-                            </div> 
-                            <img src={peImage} alt="Party" className={styles.peImage} ></img>                           
-                        </div>
-
-                        <div className={styles.PopularEvent}>
-                        </div>
-
+                            ))
+                        ) : (
+                            <p>Loading events...</p>
+                        )}
                     </div>
                 </div>
             </section>

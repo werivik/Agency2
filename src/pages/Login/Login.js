@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import bannerImage from '/media/gallery/bergensentrum.jpg';
 import loginLogo from '/media/logo/Logo.png';
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebsae";
+import { auth } from "../../firebase";
 import { useState } from "react";
 
 function Login() {
