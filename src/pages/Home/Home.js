@@ -14,6 +14,7 @@ import { collection, getDocs } from "firebase/firestore";
 const Home = () => {
 
     const [events, setEvents] = useState([]);
+    const [filteredEvents, setFilteredEvents] = useState([]);
 
     useEffect(() => {
         const fetchEvents = async () => {
@@ -24,6 +25,7 @@ const Home = () => {
                     ...doc.data(),
                 }));
                 setEvents(eventsList);
+                setFilteredEvents(eventsList.slice(0, 6));
             } 
             
             catch (error) {
@@ -39,6 +41,30 @@ const Home = () => {
         return date ? date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) : "No date available";
     };
 
+    /*
+    const filterEventsThisWeek = () => {
+        const today = new Date();
+        const endOfWeek = new Date();
+        endOfWeek.setDate(today.getDate() + 7);
+        
+        const filtered = events.filter(event => {
+            const eventDate = event.date?.toDate();
+            return eventDate && eventDate >= today && eventDate <= endOfWeek;
+        });
+
+        return filtered;
+    };
+
+    const filterUpcomingEvents = () => {
+        const sortedEvents = events.sort((a, b) => {
+            const dateA = a.date?.toDate();
+            const dateB = b.date?.toDate();
+            return dateA - dateB;
+        });
+        return sortedEvents.slice(0,6);
+    };
+    */
+
     return (
         <div className={styles.homeSections}>
 
@@ -49,8 +75,29 @@ const Home = () => {
                             <img src={bannerLogo} alt="The Spot Logo" className={styles.bannerLogo}></img>
                         </div>
                         <div className={styles.bannerRight}>
-                            <h3>Events This Week</h3>
-                            <div></div>
+                        <h3>Explore Events</h3>
+                        <div className={styles.eventWeekContainer}>
+    <div className={styles.eventWeekWrapper}>
+        {filteredEvents.length > 0 ? (
+            filteredEvents.map(event => (
+                <div key={event.id} className={styles.eventWeekCard}>
+                    <div className={styles.eventWeekDetails}>
+                        <div className={styles.eventWeekInfo}>
+                            <h3>{event.title}</h3>
+                            <p>{event.description}</p>
+                        </div>
+                        <div className={styles.eventWeekDate}>
+                            {formatDate(event.date)}
+                        </div>
+                    </div>
+                    <img src={event.image || peImage} alt="Event" className={styles.eventImage} />
+                </div>
+            ))
+        ) : (
+            <p>No events available</p>
+        )}
+    </div>
+</div>
                         </div>
                     </div>
                     <div className={styles.bannerImageBlur}>
