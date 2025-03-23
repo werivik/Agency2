@@ -25,7 +25,11 @@ function EventDetails() {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          setEvent(docSnap.data());
+          const eventData = docSnap.data();
+          setEvent({
+            ...eventData,
+            comments: eventData.comments || []
+          });
         } 
         else {
           setError("Event not found");
@@ -55,7 +59,7 @@ function EventDetails() {
       };
 
       const eventRef = doc(db, "events", id);
-      const updatedComments = [...event.comments, commentData];
+      const updatedComments = [...(event.comments || []), commentData]; 
 
       await updateDoc(eventRef, {
         comments: updatedComments,
@@ -115,17 +119,19 @@ function EventDetails() {
                   ) : (
                     <p>Login to Comment</p>
                   )}
-                  {event.comments && event.comments.length > 0 ? (
-                    <ul>
-                      {event.comments.map((comment, index) => (
-                        <li key={index}>
-                          <p className={styles.commentContent} ><strong>{comment.user}</strong>: {comment.text}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p>No comments yet.</p>
-                  )}
+  {event.comments && event.comments.length > 0 ? (
+    <div className={styles.commentsContainer}>
+      <h2 className={styles.commentsTitle}>Comments</h2>
+      {event.comments.map((comment, index) => (
+        <div key={index} className={styles.commentContainer}>
+          <h4 className={styles.commentUser}>{comment.user}</h4>
+          <p className={styles.commentText}>{comment.text}</p>
+        </div>
+      ))}
+    </div>
+  ) : (
+    <p>No comments yet.</p>
+  )}
                 </div>
               </div>
             </div>
