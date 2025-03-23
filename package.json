@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/werivik/Agency2#readme",
   "dependencies": {
+    "buffer": "^6.0.3",
     "firebase": "^11.5.0",
     "latest": "^0.2.0",
     "netlify": "^13.3.3",
