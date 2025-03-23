@@ -1,5 +1,3 @@
-/* This is the Homepage */
-
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import styles from './Home.module.css';
@@ -7,12 +5,10 @@ import bannerImage from '/media/gallery/bergensentrum.jpg';
 import bannerLogo from '/media/logo/Logo.png';
 import mapImage from '/media/gallery/bergenmap.png';
 import peImage from '/media/gallery/party.jpeg';
-
 import { db } from '../../firebase';
 import { collection, getDocs } from "firebase/firestore"; 
 
 const Home = () => {
-
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
 
@@ -41,33 +37,8 @@ const Home = () => {
         return date ? date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) : "No date available";
     };
 
-    /*
-    const filterEventsThisWeek = () => {
-        const today = new Date();
-        const endOfWeek = new Date();
-        endOfWeek.setDate(today.getDate() + 7);
-        
-        const filtered = events.filter(event => {
-            const eventDate = event.date?.toDate();
-            return eventDate && eventDate >= today && eventDate <= endOfWeek;
-        });
-
-        return filtered;
-    };
-
-    const filterUpcomingEvents = () => {
-        const sortedEvents = events.sort((a, b) => {
-            const dateA = a.date?.toDate();
-            const dateB = b.date?.toDate();
-            return dateA - dateB;
-        });
-        return sortedEvents.slice(0,6);
-    };
-    */
-
     return (
         <div className={styles.homeSections}>
-
             <section className={styles.bannerSection}>
                 <div className={styles.bannerBorder}>
                     <div className={styles.bannerContent}>
@@ -75,29 +46,31 @@ const Home = () => {
                             <img src={bannerLogo} alt="The Spot Logo" className={styles.bannerLogo}></img>
                         </div>
                         <div className={styles.bannerRight}>
-                        <h3>Upcoming Events</h3>
-                        <div className={styles.eventWeekContainer}>
-    <div className={styles.eventWeekWrapper}>
-        {filteredEvents.length > 0 ? (
-            filteredEvents.map(event => (
-                <div key={event.id} className={styles.eventWeekCard}>
-                    <div className={styles.eventWeekDetails}>
-                        <div className={styles.eventWeekInfo}>
-                            <h3>{event.title}</h3>
-                            <p>{event.description}</p>
-                        </div>
-                        <div className={styles.eventWeekDate}>
-                            {formatDate(event.date)}
-                        </div>
-                    </div>
-                    <img src={event.image || peImage} alt="Event" className={styles.eventImage} />
-                </div>
-            ))
-        ) : (
-            <p>No events available</p>
-        )}
-    </div>
-</div>
+                            <h3>Upcoming Events</h3>
+                            <div className={styles.eventWeekContainer}>
+                                <div className={styles.eventWeekWrapper}>
+                                    {filteredEvents.length > 0 ? (
+                                        filteredEvents.map(event => (
+                                            <div key={event.id} className={styles.eventWeekCard}>
+                                                <Link to={`/event/${event.id}`} className={styles.eventLink}>
+                                                    <div className={styles.eventWeekDetails}>
+                                                        <div className={styles.eventWeekInfo}>
+                                                            <h3>{event.title}</h3>
+                                                            <p>{event.description}</p>
+                                                        </div>
+                                                        <div className={styles.eventWeekDate}>
+                                                            {formatDate(event.date)}
+                                                        </div>
+                                                    </div>
+                                                    <img src={event.image || peImage} alt="Event" className={styles.eventImage} />
+                                                </Link>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <p>No events available</p>
+                                    )}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className={styles.bannerImageBlur}>
@@ -178,16 +151,18 @@ const Home = () => {
                         {events.length > 0 ? (
                             events.map(event => (
                                 <div key={event.id} className={styles.popularEvent}>
-                                    <div className={styles.peContent}>
-                                        <div className={styles.peInfo}>
-                                            <h3>{event.title}</h3>
-                                            <p>{event.description}</p>
+                                    <Link to={`/event/${event.id}`} className={styles.eventLink}>
+                                        <div className={styles.peContent}>
+                                            <div className={styles.peInfo}>
+                                                <h3>{event.title}</h3>
+                                                <p>{event.description}</p>
+                                            </div>
+                                            <div className={styles.peTime}>
+                                                {formatDate(event.date)}
+                                            </div>
                                         </div>
-                                        <div className={styles.peTime}>
-                                            {formatDate(event.date)}
-                                        </div>
-                                    </div>
-                                    <img src={event.image || peImage} alt="Event" className={styles.peImage} />
+                                        <img src={event.image || peImage} alt="Event" className={styles.peImage} />
+                                    </Link>
                                 </div>
                             ))
                         ) : (
@@ -196,10 +171,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-
         </div>
     );
-  };
-  
+};
+
 export default Home;
-  
