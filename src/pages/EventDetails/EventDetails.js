@@ -1,35 +1,73 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { db } from "../../firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import styles from './EventDetails.module.css';
+
+import defaultImage from '/media/gallery/bergensentrum.jpg';
+import mapImage from '/media/gallery/bergenmap.png';
 
 function EventDetails() {
   const { id } = useParams();
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [newComment, setNewComment] = useState("");
+  const [user, setUser] = useState(null);
+  
+  const auth = getAuth();
 
   useEffect(() => {
     const fetchEventDetails = async () => {
       try {
         const docRef = doc(db, "events", id);
         const docSnap = await getDoc(docRef);
-        
+
         if (docSnap.exists()) {
           setEvent(docSnap.data());
-        } else {
+        } 
+        else {
           setError("Event not found");
         }
-      } catch (err) {
+      } 
+      catch (err) {
         setError("Error fetching event details");
-      } finally {
+      } 
+      finally {
         setLoading(false);
       }
     };
 
+    const unsubscribe = auth.onAuthStateChanged(setUser);
     fetchEventDetails();
+
+    return () => unsubscribe();
   }, [id]);
+
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+
+    if (newComment.trim()) {
+      const commentData = {
+        user: user.displayName || "Anonymous",
+        text: newComment,
+      };
+
+      const eventRef = doc(db, "events", id);
+      const updatedComments = [...event.comments, commentData];
+
+      await updateDoc(eventRef, {
+        comments: updatedComments,
+      });
+
+      setNewComment("");
+      setEvent((prevEvent) => ({
+        ...prevEvent,
+        comments: updatedComments,
+      }));
+    }
+  };
 
   if (loading) {
     return <p>Loading...</p>;
@@ -45,27 +83,43 @@ function EventDetails() {
         <div className={styles.edBorder}>
           <div className={styles.edContent}>
             <div className={styles.edLeft}>
-              <img src={event.image || '/media/gallery/bergensentrum.jpg'} alt="Event" className={styles.edImage} />
+              <img src={event.image || defaultImage } alt="Event" className={styles.edImage} />
             </div>
             <div className={styles.edRight}>
               <div className={styles.edInfo}>
                 <h1 className={styles.edTitle}>{event.title}</h1>
                 <div className={styles.edTimeLocation}>
-                  <p><strong>Date:</strong> {new Date(event.date?.toDate()).toLocaleDateString()}</p>
-                  <p><strong>Location:</strong> {event.location}</p>
+                  <p>{new Date(event.date?.toDate()).toLocaleDateString()}</p>
+                  <p><strong>{event.location}</strong></p>
                 </div>
                 <div className={styles.edDesc}>
                   <p>{event.description}</p>
                 </div>
-                <button>Sign up for Event!</button>
-                <div className={styles.edMap}></div>
+                <button className={styles.signUp}>Sign up for Event!</button>
+                <div className={styles.edMap}>
+                  <img src={mapImage} alt="Bergen Sentrum" className={styles.mapImage} ></img>
+                </div>
                 <div className={styles.edComments}>
-                  <h3>Comments</h3>
+                  {user ? (
+                    <form onSubmit={handleCommentSubmit} className={styles.writeComment}>
+                      <textarea
+                        value={newComment}
+                        onChange={(e) => setNewComment(e.target.value)}
+                        placeholder="Write a comment..."
+                        className={styles.commentInput}
+                      />
+                      <button type="submit" className={styles.publishComment}>
+                        Publish
+                      </button>
+                    </form>
+                  ) : (
+                    <p>Login to Comment</p>
+                  )}
                   {event.comments && event.comments.length > 0 ? (
                     <ul>
                       {event.comments.map((comment, index) => (
                         <li key={index}>
-                          <p><strong>{comment.user}</strong>: {comment.text}</p>
+                          <p className={styles.commentContent} ><strong>{comment.user}</strong>: {comment.text}</p>
                         </li>
                       ))}
                     </ul>
@@ -83,3 +137,4 @@ function EventDetails() {
 }
 
 export default EventDetails;
+

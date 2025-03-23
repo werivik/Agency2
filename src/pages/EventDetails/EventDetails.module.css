@@ -1,0 +1,130 @@
+.eventDetailsSection {
+    width: 100%;
+    height: 100%;
+    max-height: 85vh;
+    margin-top: 110px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.edBorder {
+    width: 95%;
+    height: 100%;
+    position: relative;
+}
+
+.edContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3%;
+}
+
+.edLeft {
+    width: 47%;
+}
+
+.edImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50px 0px 0px 50px;
+}
+
+.edRight {
+    width: 47%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.edInfo {
+    width: 90%;
+    position: relative;
+}
+
+.edTitle {
+    font-size: 40px;
+}
+
+.edTimeLocation {
+    font-size: 20px;
+}
+
+.edDesc {
+    font-size: 24px;
+    min-height: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.signUp {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+    background-color: #E07A5F;
+    border-radius: 50px;
+    border: none;
+    transition: 0.25s;
+    color: black;
+    margin-bottom: 50px;
+}
+
+.signUp:hover {
+    transition: 0.25s;
+    cursor: pointer;
+    color: white;
+    background-color: #2B266F;
+}
+
+.edMap {
+    width: 100%;
+    height: 250px;
+    border-radius: 25px;
+}
+
+.mapImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.edComments {
+    margin-top: 50px;
+    min-height: 200px;
+    width: 100%;
+}
+
+.writeComment {
+    width: 100%;
+    position: relative;
+    border: solid black 2px;
+    border-radius: 15px;
+}
+
+.writeComment textarea {
+    width: 100%;
+    min-height: 200px;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.publishComment {
+    background-color: #E07A5F;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}
