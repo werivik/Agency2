@@ -1,6 +1,8 @@
 # The Spot
 ## Agency 2
 
+ npm ci for clean installs (do not use npm install)
+
 Pages
 
 Home page
