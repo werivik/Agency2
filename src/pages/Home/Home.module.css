@@ -96,6 +96,11 @@
     list-style: none;
 }
 
+.eventLink {
+    height: 100%;
+    width: 100%;
+}
+
 .eventWeekCard {
     height: 300px;
     width: 100%;
@@ -150,9 +155,10 @@
     font-size: 20px;
 }
 
-.eventWeekCard img {
+.eventImage {
     width: 100%;
     height: 100%;
+    min-height: 100%;
     border-radius: 25px;
     object-fit: cover;
 }
