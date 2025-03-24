@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import styles from './Home.module.css';
-import bannerImage from '/public/media/gallery/bergensentrum.jpg';
-import bannerLogo from '/public/media/logo/Logo.png';
-import mapImage from '/public/media/gallery/bergenmap.png';
-import peImage from '/public/media/gallery/party.jpeg';
+import bannerImage from '/media/gallery/bergensentrum.jpg';
+import bannerLogo from '/media/logo/Logo.png';
+import mapImage from '/media/gallery/bergenmap.png';
+import peImage from '/media/gallery/party.jpeg';
 import { db } from '../../firebase';
 import { collection, getDocs } from "firebase/firestore"; 
 
