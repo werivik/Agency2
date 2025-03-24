@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import styles from './Home.module.css';
-import bannerImage from '/media/gallery/bergensentrum.jpg';
-import bannerLogo from '/media/logo/Logo.png';
-import mapImage from '/media/gallery/bergenmap.png';
-import peImage from '/media/gallery/party.jpeg';
+import bannerImage from '/public/media/gallery/bergensentrum.jpg';
+import bannerLogo from '/public/media/logo/Logo.png';
+import mapImage from '/public/media/gallery/bergenmap.png';
+import peImage from '/public/media/gallery/party.jpeg';
 import { db } from '../../firebase';
 import { collection, getDocs } from "firebase/firestore"; 
 
@@ -52,18 +52,19 @@ const Home = () => {
                                     {filteredEvents.length > 0 ? (
                                         filteredEvents.map(event => (
                                             <div key={event.id} className={styles.eventWeekCard}>
-                                                <Link to={`/event/${event.id}`} className={styles.eventLink}>
-                                                    <div className={styles.eventWeekDetails}>
-                                                        <div className={styles.eventWeekInfo}>
-                                                            <h3>{event.title}</h3>
-                                                            <p>{event.description}</p>
-                                                        </div>
-                                                        <div className={styles.eventWeekDate}>
-                                                            {formatDate(event.date)}
-                                                        </div>
-                                                    </div>
-                                                    <img src={event.image || peImage} alt="Event" className={styles.eventImage} />
-                                                </Link>
+<Link to={`/events/${event.id}`} className={styles.eventLink}>
+  <div className={styles.eventWeekDetails}>
+    <div className={styles.eventWeekInfo}>
+      <h3>{event.title}</h3>
+      <p>{event.description}</p>
+    </div>
+    <div className={styles.eventWeekDate}>
+      {formatDate(event.date)}
+    </div>
+  </div>
+  <img src={event.image || peImage} alt="Event" className={styles.eventImage} />
+</Link>
+
                                             </div>
                                         ))
                                     ) : (
@@ -105,37 +106,37 @@ const Home = () => {
                     <div className={styles.tagList}>
                         <div className={styles.tagBorder}>
                             <div className={styles.tagInside}>
-                                <i class="fa-solid fa-martini-glass-citrus"></i>
+                            <i className="fa-solid fa-martini-glass-citrus"></i>
                             </div>
                         </div>
                         <div className={styles.tagBorder}>
                             <div className={styles.tagInside}>
-                                <i class="fa-solid fa-utensils"></i>
+                                <i className="fa-solid fa-utensils"></i>
                             </div>
                         </div>
                         <div className={styles.tagBorder}>
                             <div className={styles.tagInside}>
-                                <i class="fa-solid fa-masks-theater"></i>
+                                <i className="fa-solid fa-masks-theater"></i>
                             </div>
                         </div>
                         <div className={styles.tagBorder}>
                             <div className={styles.tagInside}>
-                                <i class="fa-solid fa-gamepad"></i>
+                                <i className="fa-solid fa-gamepad"></i>
                             </div>
                         </div>
                         <div className={styles.tagBorder}>
                             <div className={styles.tagInside}>
-                                <i class="fa-solid fa-tree"></i>
+                                <i className="fa-solid fa-tree"></i>
                             </div>
                         </div>
                         <div className={styles.tagBorder}>
                             <div className={styles.tagInside}>
-                                <i class="fa-solid fa-heart"></i>
+                                <i className="fa-solid fa-heart"></i>
                             </div>
                         </div>
                         <div className={styles.tagBorder}>
                             <div className={styles.tagInside}>
-                                <i class="fa-solid fa-video"></i>
+                                <i className="fa-solid fa-video"></i>
                             </div>
                         </div>
                     </div>

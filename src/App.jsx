@@ -1,22 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import User from './pages/User';
-import About from './pages/About';
-import Admin from './pages/Admin';
-import Contact from './pages/Contact';
-import EventDetails from './pages/EventDetails';
-import Events from './pages/Events';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
+import User from './pages/User/User';
+import About from './pages/About/About';
+import Admin from './pages/Admin/Admin';
+import Contact from './pages/Contact/Contact';
+import EventDetails from './pages/EventDetails/EventDetails';
+import Events from './pages/Events/Events';
 
 function App() {
   return (
     <Router>
       <div>
-        <Navigation />
-        <main style={{ padding: '0 2rem' }}>
+        <Header />
+        <main>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -29,6 +30,7 @@ function App() {
             <Route path="/events/:id" element={<EventDetails />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );
