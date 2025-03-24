@@ -152,7 +152,7 @@ const Home = () => {
                         {events.length > 0 ? (
                             events.map(event => (
                                 <div key={event.id} className={styles.popularEvent}>
-                                    <Link to={`/event/${event.id}`} className={styles.eventLink}>
+                                    <Link to={`/events/${event.id}`} className={styles.eventLink}>
                                         <div className={styles.peContent}>
                                             <div className={styles.peInfo}>
                                                 <h3>{event.title}</h3>
