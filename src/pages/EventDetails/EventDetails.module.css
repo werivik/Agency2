@@ -26,7 +26,7 @@
 .edLeft {
     width: 47%;
     height: 100%;
-    position: sticky;
+    position: relative;
 }
 
 .edImage {
