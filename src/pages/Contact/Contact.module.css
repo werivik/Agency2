@@ -30,6 +30,18 @@
 
 .ContactInfo {
     display: flex;
+    flex-direction: row;
     width: 100%;
     justify-content: space-evenly;
+}
+
+.ContactInfo div p {
+    margin: 0;
+    padding: 0;
+}
+
+.ContactInfo div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
