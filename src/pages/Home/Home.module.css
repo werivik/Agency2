@@ -1,0 +1,406 @@
+.homeSections {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.bannerSection {
+    height: 85vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 110px;
+    margin-bottom: 100px;
+}
+
+.bannerBorder {
+    background-color: #2B266F;
+    border-radius: 50px;
+    width: 95%;
+    height: 100%;
+    position: relative;
+}
+
+.bannerImageBlur {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.bannerImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    object-fit: cover;
+    opacity: 70%;
+    z-index: 1;
+}
+
+.bannerContent {
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bannerLeft {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bannerLogo {
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+}
+
+.bannerRight {
+    width: 50%;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+    border-radius: 0px 50px 50px 0px;
+    position: relative;
+}
+
+.bannerRight h3 {
+    font-size: 30px;
+    color: white;
+}
+
+.eventWeekContainer {
+    width: 100%;
+    height: 87.5%;
+    position: relative;
+}
+
+.eventWeekWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+    justify-content: center;
+    list-style: none;
+}
+
+.eventLink {
+    height: 100%;
+    width: 100%;
+}
+
+.eventWeekCard {
+    height: 300px;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);    
+    border-radius: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.eventWeekDetails {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: ease-in-out 0.25s;
+}
+
+.eventWeekInfo {
+    position: absolute;
+    background-color: #FCFBF6;
+    bottom: 0;
+    width: calc(100% - 10px);
+    height: 35%;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 0px 0px 24px 24px;
+}
+
+.eventWeekInfo h3 {
+    font-size: 20px;
+    color: black;
+}
+
+.eventWeekInfo p {
+    font-size: 17px;
+    color: black;
+}
+
+.eventWeekDate {
+    background-color: #2B266F;
+    width: 100px;
+    height: 25px;
+    padding: 10px;
+    border-radius: 24px 0px 25px;
+    color: white;
+    font-size: 20px;
+}
+
+.eventImage {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.eventWeekCard:hover {
+    transition: ease-in-out 0.25s;
+    cursor: pointer;
+
+    .eventWeekInfo {
+        transition: ease-in-out 0.25s;
+        height: 38%;
+    }
+}
+
+.mapSection {
+    height: 45vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.mapBorder {
+    background-color: #E07A5F;
+    border-radius: 50px;
+    width: 95%;
+    height: 100%;
+    position: relative;
+}
+
+.mapContent {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.mapLeft {
+    width: 65%;
+    height: 100%;
+    position: relative;
+}
+
+.mapImage {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border-radius: 50px 0px 0px 50px;
+}
+
+.mapRight {
+    width: 35%;
+    margin-left: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.mapRightContect {
+    color: white;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mapRightContect .open, .mapRightContect .close {
+    font-weight: bold;
+}
+
+.mapRightContect .open {
+    color: #2B266F;
+}
+
+.mapRightContect .close {
+    color: #790000;
+}
+
+.tagSection {
+    width: 100%;
+    height: 533px;
+    position: relative;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.tagTitle {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    font-size: 40px;
+    height: 283px;
+}
+
+.tagContent {
+    width: 100%;
+    background-color: #FCFBF6;
+    height: 250px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tagList {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.tagBorder {
+    width: 100px;
+    height: 100px;
+    background-color: #E07A5F;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.25s;
+}
+
+.tagBorder:hover {
+    transition: 0.25s;
+    background-color: #2B266F;
+    cursor: pointer;
+}
+
+.tagInside {
+    background-color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tagInside i {
+    font-size: 30px;
+}
+
+.eventSection {
+    margin-bottom: 100px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.eventBorder {
+    width: 95%;
+    height: 100%;
+    position: relative;
+}
+
+.eventSectionTitle {
+    display: flex;
+    align-items: center;
+    font-size: 45px;
+    height: 283px;
+}
+
+.eventContent {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    list-style: none;
+}
+
+.popularEvent {
+    height: auto;
+    width: auto;
+    max-height: 450px;
+    -webkit-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);    
+    border-radius: 25px;
+    position: relative;
+}
+
+.peContent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    transition: ease-in-out 0.25s;
+}
+
+.peInfo {
+    position: absolute;
+    background-color: #FCFBF6;
+    bottom: 0;
+    width: calc(100% - 10px);
+    height: 30%;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 0px 0px 24px 24px;
+    color: black;
+}
+
+.peTime {
+    background-color: #2B266F;
+    width: 100px;
+    height: 25px;
+    padding: 10px;
+    border-radius: 24px 0px 25px;
+    color: white;
+    font-size: 20px;
+}
+
+.peRightSide {
+    position: absolute;
+    background-color: #E07A5F;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    border-radius: 0px 24px 24px 0px;
+}
+
+.peImage {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+}
+
+.popularEvent:hover {
+    transition: ease-in-out 0.25s;
+    cursor: pointer;
+
+    .peInfo {
+        transition: ease-in-out 0.25s;
+        height: 35%;
+    }
+}

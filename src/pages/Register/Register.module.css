@@ -1,0 +1,186 @@
+.registerBackground {
+    width: 100%;
+    height: 100%;
+    background-color: #2B266F;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.registerSections {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.registerSection {
+    height: 85vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 110px;
+    margin-bottom: 100px;
+}
+
+.registerBorder {
+    background-color: #2B266F;
+    border-radius: 50px;
+    width: 95%;
+    height: 100%;
+    position: relative;
+}
+
+.registerImageBlur {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.backgroundImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    object-fit: cover;
+    opacity: 70%;
+    z-index: 1;
+}
+
+.registerContent {
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.registerLeft {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerLogo {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.registerRight {
+    width: 50%;
+    padding: 25px;
+    background-color: #FCFBF6;
+    border-radius: 0px 50px 50px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerRightContent {
+    width: 80%;
+    height: 90%;
+}
+
+.registerRightContent h2 {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.registerRightContent h3 {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;  
+}
+
+.registerForm {
+    max-height: 475px;
+    width: 100%;
+    position: relative;
+    margin-top: 40px;
+}
+
+.registerForm h3 {
+    font-size: 25px;
+}
+
+.registerButton {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #FF7957;
+    border: none;
+    height: 45px;
+    width: 175px;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-top: 35px;
+    transform: 0.3s;
+}
+
+.registerButton:hover {
+    transform: 0.3s;
+    background-color: #2B266F;
+    cursor: pointer;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 50px;
+    width: 95%;
+    font-size: 20px;
+}
+
+.inputGroup label {
+    opacity: 50%;
+}
+
+.inputGroup input {
+    height: 40px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid black 2px;
+    background-color: #FCFBF6;
+}
+
+.inputGroup input::placeholder {
+    opacity: 100%;
+    font-size: 20px;
+}
+
+.loginOptions {
+    margin-top: 100px;
+}
+
+.loginOptions p {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.loginOptions a {
+    padding: 0;
+    font-size: 20px;
+    text-decoration: none;
+    color: #FF7957;
+    font-weight: 600;
+    transition: 0.25s;
+    margin-bottom: 5px;
+}
+
+.loginOptions a:hover {
+    transition: 0.25s;
+    color: #2B266F;
+}
