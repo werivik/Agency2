@@ -117,7 +117,7 @@ function EventDetails() {
                       </button>
                     </form>
                   ) : (
-                    <p>Login to Comment</p>
+                    <p><Link to="/login">Login</Link> to Comment</p>
                   )}
   {event.comments && event.comments.length > 0 ? (
     <div className={styles.commentsContainer}>
