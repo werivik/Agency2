@@ -6,7 +6,6 @@ import { getAuth } from "firebase/auth";
 import styles from './EventDetails.module.css';
 
 import defaultImage from '/media/gallery/bergensentrum.jpg';
-import mapImage from '/media/gallery/bergenmap.png';
 
 function EventDetails() {
   const { id } = useParams();
@@ -15,7 +14,7 @@ function EventDetails() {
   const [error, setError] = useState(null);
   const [newComment, setNewComment] = useState("");
   const [user, setUser] = useState(null);
-  
+
   const auth = getAuth();
 
   useEffect(() => {
@@ -30,15 +29,12 @@ function EventDetails() {
             ...eventData,
             comments: eventData.comments || []
           });
-        } 
-        else {
+        } else {
           setError("Event not found");
         }
-      } 
-      catch (err) {
+      } catch (err) {
         setError("Error fetching event details");
-      } 
-      finally {
+      } finally {
         setLoading(false);
       }
     };
@@ -59,7 +55,7 @@ function EventDetails() {
       };
 
       const eventRef = doc(db, "events", id);
-      const updatedComments = [...(event.comments || []), commentData]; 
+      const updatedComments = [...(event.comments || []), commentData];
 
       await updateDoc(eventRef, {
         comments: updatedComments,
@@ -73,68 +69,88 @@ function EventDetails() {
     }
   };
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <section className={styles.eventDetailsSection}>
       {event && (
         <div className={styles.edBorder}>
+          {/* ✅ Event Box (Image, Description, Map, etc.) */}
           <div className={styles.edContent}>
             <div className={styles.edLeft}>
-              <img src={event.image || defaultImage } alt="Event" className={styles.edImage} />
+              <img src={event.image || defaultImage} alt="Event" className={styles.edImage} />
             </div>
+
             <div className={styles.edRight}>
               <div className={styles.edInfo}>
                 <h1 className={styles.edTitle}>{event.title}</h1>
-                <div className={styles.edTimeLocation}>
-                  <p>{new Date(event.date?.toDate()).toLocaleDateString()}</p>
-                  <p><strong>{event.location}</strong></p>
-                </div>
+
                 <div className={styles.edDesc}>
                   <p>{event.description}</p>
                 </div>
+
                 <button className={styles.signUp}>Sign up for Event!</button>
+
+                {/* ✅ Dynamic Map with plassering */}
                 <div className={styles.edMap}>
-                  <img src={mapImage} alt="Bergen Sentrum" className={styles.mapImage} ></img>
-                </div>
-                <div className={styles.edComments}>
-                  {user ? (
-                    <form onSubmit={handleCommentSubmit} className={styles.writeComment}>
-                      <textarea
-                        value={newComment}
-                        onChange={(e) => setNewComment(e.target.value)}
-                        placeholder="Write a comment..."
-                        className={styles.commentInput}
-                      />
-                      <button type="submit" className={styles.publishComment}>
-                        Publish
-                      </button>
-                    </form>
+                  {event.plassering && Array.isArray(event.plassering) && event.plassering.length === 2 ? (
+                    <iframe
+                      width="100%"
+                      height="300"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      allowFullScreen
+                      referrerPolicy="no-referrer-when-downgrade"
+                      src={`https://www.google.com/maps?q=${event.plassering[0]},${event.plassering[1]}&z=15&output=embed`}
+                    ></iframe>
+                  ) : event.plassering && event.plassering.latitude ? (
+                    <iframe
+                      width="100%"
+                      height="300"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      allowFullScreen
+                      referrerPolicy="no-referrer-when-downgrade"
+                      src={`https://www.google.com/maps?q=${event.plassering.latitude},${event.plassering.longitude}&z=15&output=embed`}
+                    ></iframe>
                   ) : (
-                    <p><Link to="/login">Login</Link> to Comment</p>
+                    <p>No location data available</p>
                   )}
-  {event.comments && event.comments.length > 0 ? (
-    <div className={styles.commentsContainer}>
-      <h2 className={styles.commentsTitle}>Comments</h2>
-      {event.comments.map((comment, index) => (
-        <div key={index} className={styles.commentContainer}>
-          <h4 className={styles.commentUser}>{comment.user}</h4>
-          <p className={styles.commentText}>{comment.text}</p>
-        </div>
-      ))}
-    </div>
-  ) : (
-    <p>No comments yet.</p>
-  )}
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* ✅ Comments Section moved OUTSIDE the edContent */}
+          <div className={styles.edComments}>
+            {user ? (
+              <form onSubmit={handleCommentSubmit} className={styles.writeComment}>
+                <textarea
+                  value={newComment}
+                  onChange={(e) => setNewComment(e.target.value)}
+                  placeholder="Write a comment..."
+                  className={styles.commentInput}
+                />
+                <button type="submit" className={styles.publishComment}>Publish</button>
+              </form>
+            ) : (
+              <p><Link to="/login">Login</Link> to Comment</p>
+            )}
+
+            {event.comments && event.comments.length > 0 ? (
+              <div className={styles.commentsContainer}>
+                <h2 className={styles.commentsTitle}>Comments</h2>
+                {event.comments.map((comment, index) => (
+                  <div key={index} className={styles.commentContainer}>
+                    <h4 className={styles.commentUser}>{comment.user}</h4>
+                    <p className={styles.commentText}>{comment.text}</p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p>No comments yet.</p>
+            )}
           </div>
         </div>
       )}
@@ -143,4 +159,3 @@ function EventDetails() {
 }
 
 export default EventDetails;
-
