@@ -12,6 +12,7 @@ import Admin from './pages/Admin/Admin';
 import Contact from './pages/Contact/Contact';
 import EventDetails from './pages/EventDetails/EventDetails';
 import Events from './pages/Events/Events';
+import StorageManager from './pages/StorageManager/StorageManager';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:id" element={<EventDetails />} />
+            <Route path="/storage-manager" element={<StorageManager />} />
           </Routes>
         </main>
         <Footer />

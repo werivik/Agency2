@@ -9,6 +9,11 @@ import { database } from '../../api/firebase';
 import { ref, onValue, get } from 'firebase/database';
 import { DEFAULT_EVENT_IMAGE } from '../../constants/images';
 
+const isValidImageUrl = (url) => {
+    if (!url) return false;
+    return url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:image');
+};
+
 const Home = () => {
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
@@ -33,6 +38,8 @@ const Home = () => {
                         const eventsList = Object.entries(eventsData).map(([id, data]) => ({
                             id,
                             ...data,
+                            // Handle both URL and base64 images
+                            image: isValidImageUrl(data.image) ? data.image : DEFAULT_EVENT_IMAGE
                         }));
                         console.log('Processed events list:', eventsList);
                         setEvents(eventsList);
@@ -105,7 +112,7 @@ const Home = () => {
                                                             {formatDate(event.dateTime)}
                                                         </div>
                                                     </div>
-                                                    <img src={event.image || DEFAULT_EVENT_IMAGE} alt="Event" className={styles.eventImage} />
+                                                    <img src={event.image} alt="Event" className={styles.eventImage} />
                                                 </Link>
                                             </div>
                                         ))
@@ -204,7 +211,7 @@ const Home = () => {
                                                 {formatDate(event.dateTime)}
                                             </div>
                                         </div>
-                                        <img src={event.image || DEFAULT_EVENT_IMAGE} alt="Event" className={styles.peImage} />
+                                        <img src={event.image} alt="Event" className={styles.peImage} />
                                     </Link>
                                 </div>
                             ))
