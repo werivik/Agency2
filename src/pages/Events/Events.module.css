@@ -1,4 +1,3 @@
-
 .eventLink {
     height: 100%;
     width: 100%;
@@ -15,7 +14,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    margin: 3rem 1rem;
+    margin: 1.5rem 0;
 }
 
 .eventWeekDetails {
@@ -79,13 +78,15 @@
 .eventContainer{
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    padding: 2rem;
+    padding: 2rem 3rem;
     gap: 1.5rem;
+    margin: 0 auto;
 }
 
 .mainText{
     color: black;
-    margin-top: 8rem;
+    padding: 3rem 3rem 0;
+    margin-top: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -93,10 +94,118 @@
 
 .mainText h1{
     font-size: 3rem;
-    margin-left: 3rem;
+    margin: 0;
 }
 
-.filterButton{
+.controlsContainer {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-right: 3rem;
+}
+
+.sortingContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sortingContainer label {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.sortSelect {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    min-width: 100px;
+}
+
+.sortSelect:focus {
+    outline: none;
+    border-color: #2B266F;
+}
+
+/* Loading styles */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #2B266F;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+.loaderTrigger {
+    height: 20px;
+    width: 100%;
+    grid-column: 1 / -1;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive styles for different screen sizes */
+@media screen and (max-width: 1200px) {
+    .eventContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .eventContainer {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+        justify-items: center;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .eventWeekCard {
+        max-width: 500px;
+        width: 100%;
+    }
+    
+    .mainText {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        padding: 2rem 1.5rem 0;
+    }
+    
+    .mainText h1 {
+        font-size: 2.5rem;
+    }
+    
+    .sortContainer {
+        align-self: center;
+    }
+    
+    .loadingContainer {
+        padding: 1.5rem;
+    }
+}
+
+/* Sort button styles */
+.sortButton {
     background-color: #E07A5F;
     color: white;
     border: none;
@@ -107,13 +216,94 @@
     font-size: 1rem;
 }
 
-.filterButton:hover{
+.sortButton:hover {
     transition: 0.25s;
     cursor: pointer;
     color: white;
     background-color: #2B266F;
 }
 
-.filterButton{
-    margin-right: 3rem;
+.sortContainer {
+    position: relative;
+    margin-right: 0;
+}
+
+.sortPanel {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background-color: #FCFBF6;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    min-width: 200px;
+}
+
+.sortOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sortOption {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.sortOption input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #E07A5F;
+    cursor: pointer;
+}
+
+/* Remove filter button and filters panel styles and leave only sort button styles */
+
+.filterButton,
+.filterButton:hover,
+.filtersPanel,
+.filterOptions, 
+.filterCheckbox,
+.filterCheckbox input[type="checkbox"],
+.controlsContainer {
+    /* Remove these styles */
+    display: none !important;
+}
+
+.pageContainer {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.eventsSection {
+    width: 100%;
+}
+
+.noEventsMessage {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+@media screen and (max-width: 768px) {
+    .pageContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .eventsSection {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
