@@ -372,6 +372,12 @@
     padding-right: 5px;
     border-radius: 0px 0px 24px 24px;
     color: black;
+    overflow: hidden;
+}
+
+.peInfo h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .peTime {
@@ -382,6 +388,7 @@
     border-radius: 24px 0px 25px;
     color: white;
     font-size: 20px;
+    transition: 0.25s;
 }
 
 .peRightSide {
@@ -408,6 +415,11 @@
 
     .peInfo {
         transition: ease-in-out 0.25s;
-        height: 35%;
+        height: 10%;
+    }
+
+    .peTime {
+        background-color: #E07A5F;
+        transition: 0.25s;
     }
 }
