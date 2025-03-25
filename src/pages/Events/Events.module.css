@@ -38,7 +38,7 @@
 }
 
 .eventWeekInfo h3 {
-    font-size: 20px;
+    font-size: 1.5rem;
     color: black;
 }
 
@@ -49,7 +49,7 @@
 
 .eventWeekDate {
     background-color: #2B266F;
-    width: 130px;
+    width: 100px;
     height: 25px;
     padding: 10px;
     border-radius: 24px 0px 25px;
@@ -88,6 +88,7 @@
     margin-top: 8rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .mainText h1{
@@ -95,12 +96,24 @@
     margin-left: 3rem;
 }
 
-.mainText button{
+.filterButton{
     background-color: #E07A5F;
     color: white;
     border: none;
-    height: 3rem;
+    height: 2.5rem;
     width: 6rem;
-    border-radius: 10%;
+    border-radius: 1rem;
+    font-weight: bolder;
+    font-size: 1rem;
 }
 
+.filterButton:hover{
+    transition: 0.25s;
+    cursor: pointer;
+    color: white;
+    background-color: #2B266F;
+}
+
+.filterButton{
+    margin-right: 3rem;
+}
