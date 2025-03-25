@@ -51,41 +51,6 @@ const Home = () => {
             (match) => monthAbbreviations[match]
         );
     };
-<<<<<<< Updated upstream
-=======
-
-    const formatDate = (timestamp) => {
-      const date = timestamp?.toDate();
-      if (!date) return "No date available";
-  
-      const formattedDate = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
-  
-      const monthAbbreviations = {
-          January: "Jan",
-          February: "Feb",
-          August: "Aug",
-          September: "Sept",
-          November: "Nov",
-          December: "Dec"
-      };
-  
-      return formattedDate.replace(
-          /\b(January|February|August|September|November|December)\b/,
-          (match) => monthAbbreviations[match]
-      );
-  };
-
-    fetchEvents();
-  }, []);
-
-  const formatDate = (timestamp) => {
-    const date = timestamp?.toDate();
-    return date
-      ? date.toLocaleDateString("en-US", { month: "long", day: "numeric" })
-      : "No date available";
-  };
-
->>>>>>> Stashed changes
   return (
     <div>
       <section>
