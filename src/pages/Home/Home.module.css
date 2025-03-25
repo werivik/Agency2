@@ -4,6 +4,7 @@
     top: 0;
     left: 0;
     right: 0;
+    background-color: white;
 }
 
 .bannerSection {
@@ -75,6 +76,7 @@
 .bannerRight h3 {
     font-size: 30px;
     color: white;
+    text-align: left;
 }
 
 .eventWeekContainer {
@@ -132,6 +134,7 @@
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 0px 0px 24px 24px;
+    text-align: left;
 }
 
 .eventWeekInfo h3 {
@@ -187,6 +190,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 100px;
+    text-align: left;
 }
 
 .mapBorder {
@@ -224,6 +228,7 @@
     margin-left: 25px;
     display: flex;
     align-items: center;
+    text-align: left;
 }
 
 .mapRightContect {
@@ -258,6 +263,7 @@
     margin-right: 2.5%;
     font-size: 40px;
     height: 283px;
+    text-align: left;
 }
 
 .tagContent {
@@ -328,6 +334,7 @@
     align-items: center;
     font-size: 45px;
     height: 283px;
+    text-align: left;
 }
 
 .eventContent {
@@ -361,6 +368,7 @@
     height: 100%;
     z-index: 2;
     transition: ease-in-out 0.25s;
+    text-align: left;
 }
 
 .peInfo {
