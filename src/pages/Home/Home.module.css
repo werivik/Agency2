@@ -264,6 +264,7 @@
     font-size: 40px;
     height: 283px;
     text-align: left;
+    color: black;
 }
 
 .tagContent {
@@ -335,6 +336,7 @@
     font-size: 45px;
     height: 283px;
     text-align: left;
+    color: black;
 }
 
 .eventContent {
