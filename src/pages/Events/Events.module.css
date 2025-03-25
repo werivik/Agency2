@@ -1,11 +1,11 @@
-/* Main container */
+/* Main container with max width and centered alignment */
 .container {
   max-width: 1400px;
   margin: 0 auto;
   padding: 20rem 1rem;
 }
 
-/* Header with title and controls */
+/* Header section with vertical layout and centered content */
 .header {
   display: flex;
   flex-direction: column;
@@ -14,15 +14,16 @@
   padding: 0.5rem 2rem;
 }
 
+/* Large, bold, centered page title */
 .header h1 {
   font-size: 3rem;
   font-weight: bold;
   margin: 0 0 1.5rem;
   color: #ffffff;
   text-align: center;
-
 }
 
+/* Container for search and sort controls with horizontal layout */
 .controls {
   display: flex;
   align-items: center;
@@ -33,6 +34,7 @@
   padding: 0 2rem;
 }
 
+/* Fixed-width search input with rounded corners */
 .searchInput {
   width: 200px;
   height: 38px;
@@ -42,6 +44,7 @@
   font-size: 0.9rem;
 }
 
+/* Orange button for toggling sort options */
 .sortButton {
   background-color: #E07A5F;
   color: white;
@@ -53,10 +56,12 @@
   cursor: pointer;
 }
 
+/* Darker orange on hover for better feedback */
 .sortButton:hover {
   background-color: #d06a4f;
 }
 
+/* Dropdown menu for sort options */
 .sortPanel {
   position: absolute;
   top: 100%;
@@ -70,12 +75,14 @@
   min-width: 200px;
 }
 
+/* Vertical stack of sort options */
 .sortOptions {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 }
 
+/* Individual sort option with radio button */
 .sortOption {
   display: flex;
   align-items: center;
@@ -83,11 +90,12 @@
   cursor: pointer;
 }
 
+/* Radio button without default margins */
 .sortOption input {
   margin: 0;
 }
 
-/* Event grid layout */
+/* 3-column responsive grid for event cards */
 .eventGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -96,7 +104,7 @@
   padding: 0 2rem;
 }
 
-/* Event card styling */
+/* Event card with rounded corners, shadow and fixed height */
 .eventCard {
   border-radius: 1rem;
   overflow: hidden;
@@ -106,6 +114,7 @@
   height: 500px;
 }
 
+/* Full-card link without default link styling */
 .eventLink {
   display: block;
   width: 100%;
@@ -114,6 +123,7 @@
   color: inherit;
 }
 
+/* Date badge in the top-left corner with distinctive styling */
 .eventDate {
   position: absolute;
   top: 0;
@@ -126,18 +136,21 @@
   z-index: 1;
 }
 
+/* Full-card image container */
 .eventImage {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
+/* Responsive image that maintains aspect ratio */
 .eventImage img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Content area at the bottom of each card */
 .eventInfo {
   position: absolute;
   bottom: 0;
@@ -148,11 +161,13 @@
   border-radius: 0 0 1rem 1rem;
 }
 
+/* Event title styling */
 .eventInfo h3 {
   margin: 0 0 0.5rem;
   font-size: 1.25rem;
 }
 
+/* Event description with 2-line limit and ellipsis */
 .eventInfo p {
   margin: 0;
   font-size: 0.9rem;
@@ -164,7 +179,7 @@
   -webkit-box-orient: vertical;
 }
 
-/* Loading indicators */
+/* Centered loading indicator container */
 .loading {
   display: flex;
   flex-direction: column;
@@ -173,6 +188,7 @@
   padding: 2rem;
 }
 
+/* Animated spinning circle loader */
 .spinner {
   width: 40px;
   height: 40px;
@@ -183,11 +199,13 @@
   margin-bottom: 1rem;
 }
 
+/* Invisible element for infinite scroll detection */
 .loadMore {
   height: 20px;
   width: 100%;
 }
 
+/* Message displayed when no events match criteria */
 .noEvents {
   grid-column: 1 / -1;
   text-align: center;
@@ -195,18 +213,20 @@
   color: #666;
 }
 
+/* Rotation animation for the loading spinner */
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-/* Responsive adjustments */
+/* Two-column grid layout for medium screens */
 @media (max-width: 1200px) {
   .eventGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* Single-column layout with adjusted sizes for mobile */
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
