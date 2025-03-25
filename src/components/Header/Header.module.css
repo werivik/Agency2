@@ -30,6 +30,29 @@ ul {
 ul a {
     color: white;
     text-decoration: none;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.headerLoginButton {
+    background-color: #e07b5f00;
+    border-radius: 999px;
+    width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: solid 2px white;
+    transition: 0.25s;
+}
+
+.headerLoginButton:hover {
+    background-color: #e07b5f;
+    border: solid 2px rgba(255, 255, 255, 0);
+    transition: 0.25s;
 }
 
 .headerLogo {
