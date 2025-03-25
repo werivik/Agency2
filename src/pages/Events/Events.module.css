@@ -1,309 +1,230 @@
-.eventLink {
-    height: 100%;
-    width: 100%;
+/* Main container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.eventWeekCard {
-    height: 500px;
-    width: 100%;
-    -webkit-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);
-    -moz-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);
-    box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);    
-    border-radius: 25px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    margin: 1.5rem 0;
+/* Header with title and controls */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4rem 0 2rem;
 }
 
-.eventWeekDetails {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transition: ease-in-out 0.25s;
+.header h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0 1.5rem;
+  color: #000;
+  text-align: center;
 }
 
-.eventWeekInfo {
-    position: absolute;
-    background-color: #FCFBF6;
-    bottom: 0;
-    width: calc(100% - 10px);
-    height: 35%;
-    padding-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-radius: 0px 0px 24px 24px;
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  padding: 0 2rem;
 }
 
-.eventWeekInfo h3 {
-    font-size: 1.5rem;
-    color: black;
+.searchInput {
+  width: 200px;
+  height: 38px;
+  padding: 0 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }
 
-.eventWeekInfo p {
-    font-size: 17px;
-    color: black;
-}
-
-.eventWeekDate {
-    background-color: #2B266F;
-    width: 100px;
-    height: 25px;
-    padding: 10px;
-    border-radius: 24px 0px 25px;
-    color: white;
-    font-size: 20px;
-}
-
-.eventImage {
-    width: 100%;
-    height: 100%;
-    min-height: 100%;
-    border-radius: 25px;
-    object-fit: cover;
-}
-
-.eventWeekCard:hover {
-    transition: ease-in-out 0.25s;
-    cursor: pointer;
-
-    .eventWeekInfo {
-        transition: ease-in-out 0.25s;
-        height: 38%;
-    }
-}
-
-
-.eventContainer{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    padding: 2rem 3rem;
-    gap: 1.5rem;
-    margin: 0 auto;
-}
-
-.mainText{
-    color: black;
-    padding: 3rem 3rem 0;
-    margin-top: 5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.mainText h1{
-    font-size: 3rem;
-    margin: 0;
-}
-
-.controlsContainer {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-right: 3rem;
-}
-
-.sortingContainer {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.sortingContainer label {
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-.sortSelect {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ccc;
-    background-color: white;
-    cursor: pointer;
-    font-size: 0.9rem;
-    min-width: 100px;
-}
-
-.sortSelect:focus {
-    outline: none;
-    border-color: #2B266F;
-}
-
-/* Loading styles */
-.loadingContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    grid-column: 1 / -1;
-    width: 100%;
-}
-
-.loader {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #2B266F;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 1rem;
-}
-
-.loaderTrigger {
-    height: 20px;
-    width: 100%;
-    grid-column: 1 / -1;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Responsive styles for different screen sizes */
-@media screen and (max-width: 1200px) {
-    .eventContainer {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .eventContainer {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
-        justify-items: center;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-    
-    .eventWeekCard {
-        max-width: 500px;
-        width: 100%;
-    }
-    
-    .mainText {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-        padding: 2rem 1.5rem 0;
-    }
-    
-    .mainText h1 {
-        font-size: 2.5rem;
-    }
-    
-    .sortContainer {
-        align-self: center;
-    }
-    
-    .loadingContainer {
-        padding: 1.5rem;
-    }
-}
-
-/* Sort button styles */
 .sortButton {
-    background-color: #E07A5F;
-    color: white;
-    border: none;
-    height: 2.5rem;
-    width: 6rem;
-    border-radius: 1rem;
-    font-weight: bolder;
-    font-size: 1rem;
+  background-color: #E07A5F;
+  color: white;
+  border: none;
+  height: 38px;
+  padding: 0 1.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .sortButton:hover {
-    transition: 0.25s;
-    cursor: pointer;
-    color: white;
-    background-color: #2B266F;
-}
-
-.sortContainer {
-    position: relative;
-    margin-right: 0;
+  background-color: #d06a4f;
 }
 
 .sortPanel {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 0.5rem;
-    background-color: #FCFBF6;
-    border-radius: 1rem;
-    padding: 1.5rem;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    min-width: 200px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 10;
+  min-width: 200px;
 }
 
 .sortOptions {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .sortOption {
-    display: flex;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.sortOption input {
+  margin: 0;
+}
+
+/* Event grid layout */
+.eventGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+}
+
+/* Event card styling */
+.eventCard {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  position: relative;
+  height: 500px;
+}
+
+.eventLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.eventDate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #2B266F;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem 0 1rem 0;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.eventImage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.eventImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eventInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.eventInfo h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.eventInfo p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Loading indicators */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #2B266F;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.loadMore {
+  height: 20px;
+  width: 100%;
+}
+
+.noEvents {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .eventGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.sortOption input[type="radio"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #E07A5F;
-    cursor: pointer;
-}
-
-/* Remove filter button and filters panel styles and leave only sort button styles */
-
-.filterButton,
-.filterButton:hover,
-.filtersPanel,
-.filterOptions, 
-.filterCheckbox,
-.filterCheckbox input[type="checkbox"],
-.controlsContainer {
-    /* Remove these styles */
-    display: none !important;
-}
-
-.pageContainer {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.eventsSection {
-    width: 100%;
-}
-
-.noEventsMessage {
-    text-align: center;
-    padding: 2rem;
-    font-size: 1.2rem;
-    color: #666;
-}
-
-@media screen and (max-width: 768px) {
-    .pageContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .eventsSection {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .eventGrid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+  }
+  
+  .searchInput {
+    width: 150px;
+  }
+  
+  .eventCard {
+    height: 450px;
+  }
 }

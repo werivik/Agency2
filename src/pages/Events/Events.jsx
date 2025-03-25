@@ -16,6 +16,7 @@ const Home = () => {
     const [page, setPage] = useState(1);
     const [sortOption, setSortOption] = useState("newest"); // Default sort: newest
     const [showSortOptions, setShowSortOptions] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
     const loaderRef = useRef(null);
     const EVENTS_PER_PAGE = 6;
 
@@ -139,6 +140,35 @@ const Home = () => {
         setShowSortOptions(false);
     };
 
+    // Handle search input change
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        setSearchTerm(value);
+        
+        if (value.trim() === "") {
+            // Reset to original sorted events
+            setDisplayedEvents(events.slice(0, EVENTS_PER_PAGE));
+            setHasMore(events.length > EVENTS_PER_PAGE);
+            setPage(1);
+            return;
+        }
+        
+        // Filter events based on search term
+        const searchValue = value.toLowerCase();
+        const filtered = events.filter(event => 
+            (event.title && event.title.toLowerCase().includes(searchValue)) || 
+            (event.description && event.description.toLowerCase().includes(searchValue))
+        );
+        
+        // Apply current sort to filtered results
+        sortEvents(filtered, sortOption);
+        
+        // Update displayed events
+        setDisplayedEvents(filtered.slice(0, EVENTS_PER_PAGE));
+        setHasMore(filtered.length > EVENTS_PER_PAGE);
+        setPage(1);
+    };
+
     // Toggle sort options visibility
     const toggleSortOptions = () => {
         setShowSortOptions(!showSortOptions);
@@ -155,10 +185,23 @@ const Home = () => {
         const startIndex = (nextPage - 1) * EVENTS_PER_PAGE;
         const endIndex = startIndex + EVENTS_PER_PAGE;
         
-        setDisplayedEvents(prev => [...prev, ...events.slice(startIndex, endIndex)]);
+        // If search is active, we need to load more from filtered events
+        if (searchTerm.trim() !== "") {
+            const searchValue = searchTerm.toLowerCase();
+            const filtered = events.filter(event => 
+                (event.title && event.title.toLowerCase().includes(searchValue)) || 
+                (event.description && event.description.toLowerCase().includes(searchValue))
+            );
+            
+            setDisplayedEvents(prev => [...prev, ...filtered.slice(startIndex, endIndex)]);
+            setHasMore(endIndex < filtered.length);
+        } else {
+            setDisplayedEvents(prev => [...prev, ...events.slice(startIndex, endIndex)]);
+            setHasMore(endIndex < events.length);
+        }
+        
         setPage(nextPage);
-        setHasMore(endIndex < events.length);
-    }, [loading, hasMore, page, events]);
+    }, [loading, hasMore, page, events, searchTerm]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -214,12 +257,19 @@ const Home = () => {
             (match) => monthAbbreviations[match]
         );
     };
-  return (
-    <div className={styles.pageContainer}>
-      <section className={styles.eventsSection}>
-        <section className={styles.mainText}>
+
+    return (
+      <div className={styles.container}>
+        <header className={styles.header}>
           <h1>Explore Events</h1>
-          <div className={styles.sortContainer}>
+          <div className={styles.controls}>
+            <input
+              type="text"
+              className={styles.searchInput}
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
             <button 
               className={styles.sortButton} 
               onClick={toggleSortOptions}
@@ -261,44 +311,48 @@ const Home = () => {
               </div>
             )}
           </div>
-        </section>
+        </header>
         
-        <div className={styles.eventContainer}>
+        <main className={styles.eventGrid}>
           {displayedEvents.length > 0 ? (
             displayedEvents.map((event) => (
-              <div key={event.id} className={styles.eventWeekCard}>
+              <div key={event.id} className={styles.eventCard}>
                 <Link to={`/events/${event.id}`} className={styles.eventLink}>
-                  <div className={styles.eventWeekDetails}>
-                    <div className={styles.eventWeekInfo}>
-                      <h3>{event.title}</h3>
-                      <p>{event.description}</p>
-                    </div>
-                    <div className={styles.eventWeekDate}>
-                      {formatDate(event.dateTime || event.date)}
-                    </div>
+                  <div className={styles.eventDate}>
+                    {formatDate(event.dateTime || event.date)}
                   </div>
-                  <img
-                    src={event.image || peImage}
-                    alt="Event"
-                    className={styles.eventImage}
-                  />
+                  <div className={styles.eventImage}>
+                    <img
+                      src={event.image || peImage}
+                      alt={event.title}
+                    />
+                  </div>
+                  <div className={styles.eventInfo}>
+                    <h3>{event.title}</h3>
+                    <p>{event.description}</p>
+                  </div>
                 </Link>
               </div>
             ))
           ) : (
-            <p className={styles.noEventsMessage}>No events available</p>
+            <div className={styles.noEvents}>
+              {searchTerm.trim() !== "" 
+                ? "No events match your search. Try different keywords." 
+                : "No events available"}
+            </div>
           )}
-        </div>
+        </main>
+        
         {loading && (
-          <div className={styles.loadingContainer}>
-            <div className={styles.loader}></div>
+          <div className={styles.loading}>
+            <div className={styles.spinner}></div>
             <p>Loading events...</p>
           </div>
         )}
-        {!loading && hasMore && <div ref={loaderRef} className={styles.loaderTrigger}></div>}
-      </section>
-    </div>
-  );
+        
+        {!loading && hasMore && <div ref={loaderRef} className={styles.loadMore}></div>}
+      </div>
+    );
 };
 
 export default Home;
