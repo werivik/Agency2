@@ -5,37 +5,64 @@ import bannerImage from '/media/gallery/bergensentrum.jpg';
 import bannerLogo from '/media/logo/Logo.png';
 import mapImage from '/media/gallery/bergenmap.png';
 import peImage from '/media/gallery/party.jpeg';
-import { db } from '../../firebase';
-import { collection, getDocs } from "firebase/firestore"; 
+import { database } from '../../api/firebase';
+import { ref, onValue, get } from 'firebase/database';
+import { DEFAULT_EVENT_IMAGE } from '../../constants/images';
 
 const Home = () => {
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
 
     useEffect(() => {
+        console.log('Starting to fetch events...');
         const fetchEvents = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, "events"));
-                const eventsList = querySnapshot.docs.map(doc => ({
-                    id: doc.id,
-                    ...doc.data(),
-                }));
-                setEvents(eventsList);
-                setFilteredEvents(eventsList.slice(0, 6));
-            } 
-            
-            catch (error) {
+                const eventsRef = ref(database, 'events');
+                console.log('Events reference created:', eventsRef);
+                
+                // First, try to get the current data
+                const snapshot = await get(eventsRef);
+                console.log('Initial snapshot:', snapshot.val());
+
+                // Then set up real-time listener
+                onValue(eventsRef, (snapshot) => {
+                    console.log('Received real-time update:', snapshot.val());
+                    if (snapshot.exists()) {
+                        const eventsData = snapshot.val();
+                        console.log('Events data:', eventsData);
+                        const eventsList = Object.entries(eventsData).map(([id, data]) => ({
+                            id,
+                            ...data,
+                        }));
+                        console.log('Processed events list:', eventsList);
+                        setEvents(eventsList);
+                        setFilteredEvents(eventsList.slice(0, 6));
+                    } else {
+                        console.log('No events found in database');
+                        setEvents([]);
+                        setFilteredEvents([]);
+                    }
+                }, (error) => {
+                    console.error('Error in onValue listener:', error);
+                });
+            } catch (error) {
                 console.error("Error fetching events:", error);
             }
         };
 
         fetchEvents();
+
+        // Cleanup function
+        return () => {
+            const eventsRef = ref(database, 'events');
+            // Remove the listener when component unmounts
+            onValue(eventsRef, () => {}, { onlyOnce: true });
+        };
     }, []);
 
-    const formatDate = (timestamp) => {
-        const date = timestamp?.toDate();
-        if (!date) return "No date available";
-    
+    const formatDate = (dateTimeString) => {
+        if (!dateTimeString) return "No date available";
+        const date = new Date(dateTimeString);
         const formattedDate = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
     
         const monthAbbreviations = {
@@ -68,19 +95,18 @@ const Home = () => {
                                     {filteredEvents.length > 0 ? (
                                         filteredEvents.map(event => (
                                             <div key={event.id} className={styles.eventWeekCard}>
-<Link to={`/events/${event.id}`} className={styles.eventLink}>
-  <div className={styles.eventWeekDetails}>
-    <div className={styles.eventWeekInfo}>
-      <h3>{event.title}</h3>
-      <p>{event.description}</p>
-    </div>
-    <div className={styles.eventWeekDate}>
-      {formatDate(event.date)}
-    </div>
-  </div>
-  <img src={event.image || peImage} alt="Event" className={styles.eventImage} />
-</Link>
-
+                                                <Link to={`/events/${event.id}`} className={styles.eventLink}>
+                                                    <div className={styles.eventWeekDetails}>
+                                                        <div className={styles.eventWeekInfo}>
+                                                            <h3>{event.title}</h3>
+                                                            <p>{event.description}</p>
+                                                        </div>
+                                                        <div className={styles.eventWeekDate}>
+                                                            {formatDate(event.dateTime)}
+                                                        </div>
+                                                    </div>
+                                                    <img src={event.image || DEFAULT_EVENT_IMAGE} alt="Event" className={styles.eventImage} />
+                                                </Link>
                                             </div>
                                         ))
                                     ) : (
@@ -175,10 +201,10 @@ const Home = () => {
                                                 <p>{event.description}</p>
                                             </div>
                                             <div className={styles.peTime}>
-                                                {formatDate(event.date)}
+                                                {formatDate(event.dateTime)}
                                             </div>
                                         </div>
-                                        <img src={event.image || peImage} alt="Event" className={styles.peImage} />
+                                        <img src={event.image || DEFAULT_EVENT_IMAGE} alt="Event" className={styles.peImage} />
                                     </Link>
                                 </div>
                             ))
