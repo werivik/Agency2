@@ -9,9 +9,10 @@ function Header() {
         <Link to="/" className={styles.logo}><img src={headerLogo} alt="The Spot Logo" className={styles.headerLogo}></img></Link>
         <ul>
           <Link to="/" >Home</Link>
-          <Link to="/login" >Login</Link>
+          <Link to="/events" >Events</Link>
           <Link to="/about" >About us</Link>
           <Link to="/contact" >Contact</Link>
+          <Link to="/login" className={styles.headerLoginButton} >Login</Link>
         </ul>
       </nav>
     </header>

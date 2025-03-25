@@ -1,0 +1,124 @@
+.aboutBackground {
+    width: 100%;
+    height: 100%;
+    background-color: #2B266F;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.aboutSection {
+    height: 85vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 110px;
+    margin-bottom: 100px;
+}
+
+.aboutBorder {
+    background-color: #2B266F;
+    border-radius: 50px;
+    width: 95%;
+    height: 100%;
+    position: relative;
+}
+
+.aboutImageBlur {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.backgroundImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    object-fit: cover;
+    opacity: 70%;
+    z-index: 1;
+}
+
+.aboutContent {
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.aboutLeft {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutLogo {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+.aboutRight {
+    width: 50%;
+    padding: 25px;
+    background-color: #FCFBF6;
+    border-radius: 0px 50px 50px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutRightContent {
+    width: 80%;
+    height: 90%;
+    color: black;
+}
+
+.aboutRightContent h2 {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.aboutRightContent h3 {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;  
+}
+
+.aboutRightContent p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.aboutOptions {
+    margin-top: 50px;
+}
+
+.aboutOptions p {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+.aboutOptions a {
+    padding: 0;
+    font-size: 20px;
+    text-decoration: none;
+    color: #FF7957;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.aboutOptions a:hover {
+    transition: 0.25s;
+    color: #2B266F;
+}
