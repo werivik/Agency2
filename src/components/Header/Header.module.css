@@ -9,6 +9,7 @@ header {
     right: 0;
     display: flex;
     justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 nav {
@@ -35,6 +36,12 @@ ul a {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+ul a:hover {
+    cursor: pointer;
+    transition: 0.25s;
+    color: #e07b5f;
 }
 
 .headerLoginButton {
