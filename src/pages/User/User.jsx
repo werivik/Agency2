@@ -82,7 +82,7 @@ function User() {
             <p>Create Event</p>
             <p>Edit Event</p>
             <p onClick={handleScrollToSettings} className={styles.clickableText}>
-              Profile Settings
+              Edit Profile
             </p>
             <button onClick={handleSignOut} className={styles.signOutButton}>
               Sign Out
@@ -92,24 +92,26 @@ function User() {
       </section>
 
       <section ref={settingsRef} className={styles.profileSettingsSection}>
-        <h2>Profile Settings</h2>
+        <h2>Edit Profile</h2>
         <div className={styles.profileSettingsContent}>
-          <label>Change Username:</label>
+          <div className={styles.userNameChange}>
+          <label>Username:</label>
           <input
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Enter new username"
           />
-
-          <label>Change Profile Picture (URL):</label>
+          </div>
+          <div>
+          <label>Profile Picture (URL):</label>
           <input
             type="text"
             value={profileImage}
             onChange={(e) => setProfileImage(e.target.value)}
             placeholder="Paste image URL"
           />
-
+          </div>
           <button onClick={handleSaveProfile} className={styles.saveButton}>
             Save Changes
           </button>

@@ -106,3 +106,72 @@
     background-color: #2B266F;
     border-color: #2B266F;
 }
+
+.profileSettingsSection {
+    width: calc(95% - 50px);
+    padding: 25px;
+    border-radius: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: #FCF9F6;
+    -webkit-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 15px 10px rgba(0,0,0,0.15);  
+}
+
+.profileSettingsSection h2 {
+    font-size: 40px;
+    margin-bottom: 50px;
+    margin-left: 25px;
+}
+
+.profileSettingsContent {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.profileSettingsContent div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.profileSettingsContent div label {
+    opacity: 75%;
+    font-size: 18px;
+}
+
+.profileSettingsContent div input {
+    background-color: white;
+    border: solid 2px #2B266F;
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 20px;
+    border-radius: 50px;
+}
+
+.userNameChange input {
+    width: 300px;
+}
+
+.saveButton {
+    background-color: #E07A5F;
+    border: none;
+    border-radius: 50px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 175px;
+    transition: 0.25s;
+}
+
+.saveButton:hover {
+    cursor: pointer;
+    transition: 0.25s;
+    background-color: #2B266F;
+    color: white;
+}
