@@ -1,6 +1,7 @@
 import styles from './Header.module.css';
 import { Link } from "react-router-dom";
 import headerLogo from '/media/logo/Logo.png';
+import headerProfile from '/media/gallery/defaultprofile.png';
 
 function Header() {
   return (
@@ -13,6 +14,7 @@ function Header() {
           <Link to="/about" >About us</Link>
           <Link to="/contact" >Contact</Link>
           <Link to="/loginoptions" className={styles.headerLoginButton} >Login</Link>
+          <Link to="/user"><img src={headerProfile} alt="Default Avatar" className={styles.headerProfile} /></Link>
         </ul>
       </nav>
     </header>

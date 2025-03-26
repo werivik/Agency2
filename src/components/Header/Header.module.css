@@ -60,3 +60,17 @@ ul a {
     width: 90px;
     object-fit: contain;
 }
+
+.headerProfile {
+    border-radius: 999px;
+    height: 45px;
+    width: 45px;
+    border: solid 4px white;
+    transition: 0.25s;
+}
+
+.headerProfile:hover {
+    cursor: pointer;
+    transition: 0.25s;
+    border-color: #e07b5f;
+}
