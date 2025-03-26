@@ -5,14 +5,21 @@ import bannerImage from '/media/gallery/bergensentrum.jpg';
 import bannerLogo from '/media/logo/Logo.png';
 import mapImage from '/media/gallery/bergenmap.png';
 import peImage from '/media/gallery/party.jpeg';
-import { db } from '../../firebase';
-import { collection, getDocs } from "firebase/firestore"; 
+import { database } from '../../api/firebase';
+import { ref, onValue, get } from 'firebase/database';
+import { DEFAULT_EVENT_IMAGE } from '../../constants/images';
+
+const isValidImageUrl = (url) => {
+    if (!url) return false;
+    return url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:image');
+};
 
 const Home = () => {
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
 
     useEffect(() => {
+        console.log('Starting to fetch events...');
         const fetchEvents = async () => {
             try {
                 const querySnapshot = await getDocs(collection(db, "events"));
@@ -30,6 +37,13 @@ const Home = () => {
         };
 
         fetchEvents();
+
+        // Cleanup function
+        return () => {
+            const eventsRef = ref(database, 'events');
+            // Remove the listener when component unmounts
+            onValue(eventsRef, () => {}, { onlyOnce: true });
+        };
     }, []);
 
     const getUpcomingEvents = (eventsList) => {
@@ -182,10 +196,10 @@ const Home = () => {
                                                 <p>{event.description}</p>
                                             </div>
                                             <div className={styles.peTime}>
-                                                {formatDate(event.date)}
+                                                {formatDate(event.dateTime)}
                                             </div>
                                         </div>
-                                        <img src={event.image || peImage} alt="Event" className={styles.peImage} />
+                                        <img src={event.image} alt="Event" className={styles.peImage} />
                                     </Link>
                                 </div>
                             ))

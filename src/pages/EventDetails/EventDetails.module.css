@@ -1,31 +1,30 @@
 .eventDetailsSection {
     width: 100%;
-    height: 100%;
-    max-height: 85vh;
     margin-top: 110px;
-    position: relative;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .edBorder {
     width: 95%;
-    height: 100%;
-    position: relative;
 }
 
 .edContent {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 3%;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    padding: 20px;
 }
 
 .edLeft {
     width: 47%;
-    height: 100%;
     min-height: 80vh;
     max-height: 85vh;
     position: sticky;
@@ -34,54 +33,51 @@
 .edImage {
     width: 100%;
     height: 100%;
-    min-height: 80vh;
-    max-height: 85vh;
     object-fit: cover;
-    border-radius: 50px 0px 0px 50px;
+    border-radius: 25px;
 }
 
 .edRight {
     width: 47%;
-    height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-    position: relative;
 }
 
 .edInfo {
     width: 90%;
-    position: relative;
 }
 
 .edTitle {
-    font-size: 40px;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: black;
 }
 
 .edTimeLocation {
-    font-size: 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 
 .edDesc {
-    font-size: 24px;
-    min-height: 200px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #333;
 }
 
 .signUp {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
-    padding: 12px;
+    padding: 12px 20px;
     background-color: #E07A5F;
     border-radius: 50px;
     border: none;
     transition: 0.25s;
     color: black;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .signUp:hover {
-    transition: 0.25s;
     cursor: pointer;
     color: white;
     background-color: #2B266F;
@@ -91,34 +87,52 @@
     width: 100%;
     height: 250px;
     border-radius: 25px;
+    overflow: hidden;
 }
 
-.mapImage {
+.edMap iframe {
     width: 100%;
     height: 100%;
     border-radius: 25px;
     object-fit: cover;
 }
 
+/* ✅ Comments styling - clean container */
 .edComments {
     margin-top: 50px;
-    min-height: 200px;
-    width: 100%;
+    padding: 40px;
+    width: 95%;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
+/* ✅ Write comment box */
 .writeComment {
     width: 100%;
-    position: relative;
-    border: solid black 2px;
+    border: 2px solid #000;
     border-radius: 15px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 30px;
 }
 
 .writeComment textarea {
     width: 100%;
     min-height: 100px;
     border: none;
+    outline: none;
     padding: 10px;
     border-radius: 15px;
+    resize: none;
+    font-size: 16px;
+}
+
+.comment-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
 }
 
 .publishComment {
@@ -128,30 +142,36 @@
     border-radius: 50px;
     font-size: 15px;
     font-weight: bold;
-    padding: 5px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
     transition: 0.25s;
 }
 
 .publishComment:hover {
     background-color: #2B266F;
+}
+
+.cancelComment {
+    background-color: #ccc;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 16px;
     cursor: pointer;
     transition: 0.25s;
 }
 
+.cancelComment:hover {
+    background-color: #999;
+}
+
+/* ✅ Comment listing */
 .commentsContainer {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.commentContainer .commentsTitle {
-    font-size: 25px;
 }
 
 .commentContainer {
@@ -159,16 +179,130 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
 }
 
-.commentContainer .commentUser {
-    font-size: 22px;
-    font-weight: 400;
-    margin: 0;
+.commentHeader {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.commentContainer .commentText {
-    font-size: 24px;
+.commentUser {
+    font-size: 18px;
     font-weight: 600;
-    margin: 0;
+    color: black;
+}
+
+.commentAvatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.commentText {
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 10px;
+    color: black;
+}
+
+.commentActions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.commentActions .like,
+.commentActions .dislike {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.commentActions .like:hover,
+.commentActions .dislike:hover {
+    color: #E07A5F;
+}
+
+/* ✅ Optional responsiveness */
+@media (max-width: 900px) {
+    .edContent {
+        flex-direction: column;
+    }
+
+    .edLeft, .edRight {
+        width: 100%;
+        max-height: none;
+        min-height: auto;
+        position: static;
+    }
+
+    .edImage {
+        border-radius: 25px;
+    }
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #2B266F;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.errorContainer {
+    text-align: center;
+    padding: 5rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.backLink {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background-color: #E07A5F;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.backLink:hover {
+    background-color: #2B266F;
+}
+
+.eventMeta {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 0.5rem;
+}
+
+.eventDate, .eventLocation {
+    margin-bottom: 0.5rem;
 }
