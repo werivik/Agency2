@@ -12,7 +12,6 @@ function Header() {
           <Link to="/events" >Events</Link>
           <Link to="/about" >About us</Link>
           <Link to="/contact" >Contact</Link>
-          <Link to="/admin" >Admin</Link>
           <Link to="/loginoptions" className={styles.headerLoginButton} >Login</Link>
         </ul>
       </nav>
