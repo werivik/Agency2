@@ -22,16 +22,15 @@
   },
   "homepage": "https://github.com/werivik/Agency2#readme",
   "dependencies": {
-    "buffer": "^6.0.3",
-    "firebase": "^11.5.0",
-    "latest": "^0.2.0",
-    "netlify": "^13.3.3",
-    "netlify-cli": "^19.0.2",
-    "node": "^23.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.30.0",
     "react-router-dom": "^7.4.0",
+    "buffer": "^6.0.3",
+    "latest": "^0.2.0",
+    "netlify": "^13.3.3",
+    "netlify-cli": "^19.0.2",
+    "node": "^23.8.0",
     "styled-components": "^6.1.15"
   },
   "devDependencies": {

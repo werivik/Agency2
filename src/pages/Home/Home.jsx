@@ -22,37 +22,16 @@ const Home = () => {
         console.log('Starting to fetch events...');
         const fetchEvents = async () => {
             try {
-                const eventsRef = ref(database, 'events');
-                console.log('Events reference created:', eventsRef);
-                
-                // First, try to get the current data
-                const snapshot = await get(eventsRef);
-                console.log('Initial snapshot:', snapshot.val());
-
-                // Then set up real-time listener
-                onValue(eventsRef, (snapshot) => {
-                    console.log('Received real-time update:', snapshot.val());
-                    if (snapshot.exists()) {
-                        const eventsData = snapshot.val();
-                        console.log('Events data:', eventsData);
-                        const eventsList = Object.entries(eventsData).map(([id, data]) => ({
-                            id,
-                            ...data,
-                            // Handle both URL and base64 images
-                            image: isValidImageUrl(data.image) ? data.image : DEFAULT_EVENT_IMAGE
-                        }));
-                        console.log('Processed events list:', eventsList);
-                        setEvents(eventsList);
-                        setFilteredEvents(eventsList.slice(0, 6));
-                    } else {
-                        console.log('No events found in database');
-                        setEvents([]);
-                        setFilteredEvents([]);
-                    }
-                }, (error) => {
-                    console.error('Error in onValue listener:', error);
-                });
-            } catch (error) {
+                const querySnapshot = await getDocs(collection(db, "events"));
+                const eventsList = querySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setEvents(eventsList);
+                setFilteredEvents(getUpcomingEvents(eventsList));
+            } 
+            
+            catch (error) {
                 console.error("Error fetching events:", error);
             }
         };
@@ -67,9 +46,18 @@ const Home = () => {
         };
     }, []);
 
-    const formatDate = (dateTimeString) => {
-        if (!dateTimeString) return "No date available";
-        const date = new Date(dateTimeString);
+    const getUpcomingEvents = (eventsList) => {
+        const now = new Date();
+        return eventsList
+            .filter(event => event.date?.toDate() >= now)
+            .sort((a, b) => a.date.toDate() - b.date.toDate())
+            .slice(0, 6);
+    };
+
+    const formatDate = (timestamp) => {
+        const date = timestamp?.toDate();
+        if (!date) return "No date available";
+    
         const formattedDate = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
     
         const monthAbbreviations = {
@@ -109,10 +97,10 @@ const Home = () => {
                                                             <p>{event.description}</p>
                                                         </div>
                                                         <div className={styles.eventWeekDate}>
-                                                            {formatDate(event.dateTime)}
+                                                            {formatDate(event.date)}
                                                         </div>
                                                     </div>
-                                                    <img src={event.image} alt="Event" className={styles.eventImage} />
+                                                    <img src={event.image || peImage} alt="Event" className={styles.eventImage} />
                                                 </Link>
                                             </div>
                                         ))
@@ -226,3 +214,4 @@ const Home = () => {
 };
 
 export default Home;
+
