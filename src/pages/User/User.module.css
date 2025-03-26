@@ -59,6 +59,7 @@
 
 .profileRight {
     font-size: 20px;
+    font-weight: bold;
     display: flex;
     flex-direction: row;
     gap: 50px;
@@ -66,6 +67,7 @@
 
 .profileOptions {
     font-size: 20px;
+    font-weight: bold;
     background-color: #E07A5F;
     position: absolute;
     bottom: 0;
