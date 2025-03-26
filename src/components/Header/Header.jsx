@@ -4,14 +4,23 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
 import styles from "./Header.module.css";
 import headerLogo from "/media/logo/Logo.png";
-import headerProfile from "/media/gallery/defaultprofile.png";
+import defaultProfile from "/media/gallery/defaultprofile.png";
 
 function Header() {
   const [user, setUser] = useState(null);
+  const [profileImage, setProfileImage] = useState(defaultProfile);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+      if (currentUser) {
+        setUser(currentUser);
+        setProfileImage(currentUser.photoURL || defaultProfile);
+      } 
+      
+      else {
+        setUser(null);
+        setProfileImage(defaultProfile);
+      }
     });
 
     return () => unsubscribe();
@@ -30,7 +39,7 @@ function Header() {
           <Link to="/contact">Contact</Link>
           {user ? (
             <Link to="/user">
-              <img src={headerProfile} alt="User Profile" className={styles.headerProfile} />
+              <img src={profileImage} alt="User Profile" className={styles.headerProfile} />
             </Link>
           ) : (
             <Link to="/loginoptions" className={styles.headerLoginButton}>
