@@ -21,7 +21,7 @@ const Home = () => {
                     ...doc.data(),
                 }));
                 setEvents(eventsList);
-                setFilteredEvents(eventsList.slice(0, 6));
+                setFilteredEvents(getUpcomingEvents(eventsList));
             } 
             
             catch (error) {
@@ -31,6 +31,14 @@ const Home = () => {
 
         fetchEvents();
     }, []);
+
+    const getUpcomingEvents = (eventsList) => {
+        const now = new Date();
+        return eventsList
+            .filter(event => event.date?.toDate() >= now)
+            .sort((a, b) => a.date.toDate() - b.date.toDate())
+            .slice(0, 6);
+    };
 
     const formatDate = (timestamp) => {
         const date = timestamp?.toDate();
@@ -68,19 +76,18 @@ const Home = () => {
                                     {filteredEvents.length > 0 ? (
                                         filteredEvents.map(event => (
                                             <div key={event.id} className={styles.eventWeekCard}>
-<Link to={`/events/${event.id}`} className={styles.eventLink}>
-  <div className={styles.eventWeekDetails}>
-    <div className={styles.eventWeekInfo}>
-      <h3>{event.title}</h3>
-      <p>{event.description}</p>
-    </div>
-    <div className={styles.eventWeekDate}>
-      {formatDate(event.date)}
-    </div>
-  </div>
-  <img src={event.image || peImage} alt="Event" className={styles.eventImage} />
-</Link>
-
+                                                <Link to={`/events/${event.id}`} className={styles.eventLink}>
+                                                    <div className={styles.eventWeekDetails}>
+                                                        <div className={styles.eventWeekInfo}>
+                                                            <h3>{event.title}</h3>
+                                                            <p>{event.description}</p>
+                                                        </div>
+                                                        <div className={styles.eventWeekDate}>
+                                                            {formatDate(event.date)}
+                                                        </div>
+                                                    </div>
+                                                    <img src={event.image || peImage} alt="Event" className={styles.eventImage} />
+                                                </Link>
                                             </div>
                                         ))
                                     ) : (
@@ -193,3 +200,4 @@ const Home = () => {
 };
 
 export default Home;
+
