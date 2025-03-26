@@ -1,21 +1,22 @@
-import styles from './Login.module.css';
-import { Link } from "react-router-dom";
-import bannerImage from '/media/gallery/bergensentrum.jpg';
-import loginLogo from '/media/logo/Logo.png';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import { useState } from "react";
+import styles from "./Login.module.css";
+import bannerImage from "/media/gallery/bergensentrum.jpg";
+import loginLogo from "/media/logo/Logo.png";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Login successful!");
+      navigate("/");
     } 
     
     catch (error) {
