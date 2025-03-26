@@ -9,6 +9,7 @@ header {
     right: 0;
     display: flex;
     justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 nav {
@@ -37,6 +38,12 @@ ul a {
     text-align: center;
 }
 
+ul a:hover {
+    cursor: pointer;
+    transition: 0.25s;
+    color: #e07b5f;
+}
+
 .headerLoginButton {
     background-color: #e07b5f00;
     border-radius: 999px;
@@ -59,4 +66,18 @@ ul a {
     height: 90px;
     width: 90px;
     object-fit: contain;
+}
+
+.headerProfile {
+    border-radius: 999px;
+    height: 45px;
+    width: 45px;
+    border: solid 4px white;
+    transition: 0.25s;
+}
+
+.headerProfile:hover {
+    cursor: pointer;
+    transition: 0.25s;
+    border-color: #e07b5f;
 }
