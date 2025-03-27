@@ -116,6 +116,7 @@
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    font-size: 17px;
 }
 
 .eventWeekDetails {
@@ -187,6 +188,7 @@
 
 .mapSection {
     height: 45vh;
+    min-height: 400px;
     width: 100%;
     position: relative;
     display: flex;
@@ -238,6 +240,7 @@
     font-size: 25px;
     display: flex;
     flex-direction: column;
+    gap: 25px;
 }
 
 .mapRightContect .open, .mapRightContect .close {
