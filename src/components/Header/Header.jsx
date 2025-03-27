@@ -42,7 +42,7 @@ function Header() {
               <img src={profileImage} alt="User Profile" className={styles.headerProfile} />
             </Link>
           ) : (
-            <Link to="/loginoptions" className={styles.headerLoginButton}>
+            <Link to="/login-direction" className={styles.headerLoginButton}>
               Login
             </Link>
           )}
