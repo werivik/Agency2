@@ -131,7 +131,7 @@
     background-color: #FCFBF6;
     bottom: 0;
     width: calc(100% - 30px);
-    height: 35%;
+    height: 37%;
     padding-bottom: 10px;
     padding-left: 15px;
     padding-right: 15px;
@@ -177,7 +177,7 @@
 
     .eventWeekInfo {
         transition: ease-in-out 0.25s;
-        height: 10%;
+        height: 12%;
     }
     .eventWeekDate {
         transition: 0.25s;
