@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import styles from './LoginOptions.module.css';
+import styles from './LoginDirection.module.css';
  
-const LoginOptions = () => {
+const LoginDirection = () => {
     
     return (
         <div className={styles.loginSections}>
@@ -24,4 +23,4 @@ const LoginOptions = () => {
     );
 };
 
-export default LoginOptions;
+export default LoginDirection;

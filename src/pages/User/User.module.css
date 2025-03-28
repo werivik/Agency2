@@ -86,6 +86,8 @@
 
 .profileOptions p:hover {
     cursor: pointer;
+    transition: 0.25s;
+    color: #2B266F;
 }
 
 .signOutButton {

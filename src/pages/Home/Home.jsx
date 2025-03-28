@@ -127,41 +127,41 @@ const Home = () => {
                 </div>
                 <div className={styles.tagContent}>
                     <div className={styles.tagList}>
-                        <div className={styles.tagBorder}>
+                        <Link to={"/events"} className={styles.tagBorder}>
                             <div className={styles.tagInside}>
-                            <i className="fa-solid fa-martini-glass-citrus"></i>
+                                <i className="fa-solid fa-martini-glass-citrus"></i>
                             </div>
-                        </div>
-                        <div className={styles.tagBorder}>
+                        </Link>
+                        <Link to={"/events"} className={styles.tagBorder}>
                             <div className={styles.tagInside}>
                                 <i className="fa-solid fa-utensils"></i>
                             </div>
-                        </div>
-                        <div className={styles.tagBorder}>
+                        </Link>
+                        <Link to={"/events"} className={styles.tagBorder}>
                             <div className={styles.tagInside}>
                                 <i className="fa-solid fa-masks-theater"></i>
                             </div>
-                        </div>
-                        <div className={styles.tagBorder}>
+                        </Link>
+                        <Link to={"/events"} className={styles.tagBorder}>
                             <div className={styles.tagInside}>
                                 <i className="fa-solid fa-gamepad"></i>
                             </div>
-                        </div>
-                        <div className={styles.tagBorder}>
+                        </Link>
+                        <Link to={"/events"} className={styles.tagBorder}>
                             <div className={styles.tagInside}>
                                 <i className="fa-solid fa-tree"></i>
                             </div>
-                        </div>
-                        <div className={styles.tagBorder}>
+                        </Link>
+                        <Link to={"/events"} className={styles.tagBorder}>
                             <div className={styles.tagInside}>
                                 <i className="fa-solid fa-heart"></i>
                             </div>
-                        </div>
-                        <div className={styles.tagBorder}>
+                        </Link>
+                        <Link to={"/events"} className={styles.tagBorder}>
                             <div className={styles.tagInside}>
                                 <i className="fa-solid fa-video"></i>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -170,6 +170,7 @@ const Home = () => {
                 <div className={styles.eventBorder}>
                     <div className={styles.eventSectionTitle}>
                         <h2>Popular Events</h2>
+                        <Link to={"/events"}>See All</Link>
                     </div>
                     <div className={styles.eventContent}>
                         {events.length > 0 ? (
