@@ -1,78 +1,69 @@
-.footer {
+footer {
   background-color: #2B266F;
   color: white;
-  padding: 40px 20px 20px;
+  margin-top: 1rem;
 }
 
-.footerContent {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.topTextContainer{
+    width: 40%;
 }
 
-.footerSection {
-  flex: 1;
-  min-width: 200px;
-  margin-bottom: 20px;
-  padding: 0 15px;
+.mainText{
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1rem;
 }
 
-.footerSection h3 {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  position: relative;
+
+
+.textContainer{
+    padding: 1rem;
+    color: #B6B6B6;
 }
 
-.footerSection h3::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 40px;
-  height: 2px;
-  background-color: #E07A5F;
+.textContainer p{
+    margin: 1rem 0;
 }
 
-.footerSection p {
-  margin-bottom: 15px;
-  font-size: 0.9rem;
-  opacity: 0.8;
+.aboutContainer{
+    display: flex;
+    flex-direction: column;
 }
 
-.footerSection ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.aboutContainer p:first-child{
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
-.footerSection ul li {
-  margin-bottom: 10px;
+.underTextContainer{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    padding: 1rem;
+    gap: 20px;
+    color: #B6B6B6;
 }
 
-.footerSection ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s;
-  display: inline-block;
-  opacity: 0.8;
+.socialIcons{
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
 }
 
-.footerSection ul li a:hover {
-  color: #E07A5F;
-  opacity: 1;
+.copyRight{
+    background-color: #000413;
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 0.6rem;
 }
 
-.footerBottom {
-  text-align: center;
-  padding-top: 20px;
-  margin-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+.iconCircle{
+    background-color: #000413;
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    border-radius: 100%;
+    display: flex;
+    border: 1px solid ;
 }
 
-.footerBottom p {
-  font-size: 0.8rem;
-  opacity: 0.7;
-}
