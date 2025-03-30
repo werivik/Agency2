@@ -307,3 +307,21 @@
 .eventDate, .eventLocation {
     margin-bottom: 0.5rem;
 }
+
+
+
+.containerH1icon{
+    display: flex;
+    justify-content: space-between;
+}
+
+.iconShare{
+    font-size: 1.5rem;
+    display: flex;
+    align-self: center;
+}
+
+.iconShare:hover{
+    cursor: pointer;
+}
+
