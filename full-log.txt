@@ -1,0 +1,146 @@
+     2	Amund Halgunset <142892292+amundh00@users.noreply.github.com>
+     2	Amund Halgunset <amundhalgunset@gmail.com>
+    16	Daniel Østensen <98233180+DanielSan-01@users.noreply.github.com>
+     6	Danielsan <98233180+DanielSan-01@users.noreply.github.com>
+    12	Ole <144427985+Ole12345678910@users.noreply.github.com>
+    15	Weronika Vik <146065519+werivik@users.noreply.github.com>
+    74	werivik <wervik00994@stud.noroff.no>
+Amund Halgunset (4):
+      About us page
+      Merge pull request #68 from werivik/amundNew
+      EventDetails
+      Merge pull request #73 from werivik/eventDetailsMap
+
+Daniel Østensen (16):
+      first commit for the api
+      setup
+      react routing
+      huge list of changes
+      Update .gitignore
+      added gitignore correctly
+      Delete package-lock.json
+      123
+      Merge main: Resolve conflicts
+      Fix merge conflicts in package.json and index.jsx
+      created adminpage
+      imageupload and footer fix error handling
+      fixed entire all events page (display
+      added search bar
+      Layout Changes to the Events Page
+      more css
+
+Danielsan (6):
+      Merge pull request #54 from werivik/api-branch
+      Merge pull request #57 from werivik/main-setup
+      Update README.md
+      Merge pull request #74 from werivik/admin-page-brach
+      Merge pull request #77 from werivik/imageUpload-storageManage-footer
+      Merge pull request #80 from werivik/fixAllEventsPage sort and searchbar
+
+Ole (12):
+      made jsx code and styled
+      Merge remote-tracking branch 'origin/main' into ole
+      updated the main into the current branch
+      Event.jsx date shorten function
+      Event.jsx date shorten function remove
+      Merge pull request #72 from werivik/ole
+      Made the base structure for footer
+      Updated the jsx footer
+      tiny add
+      Merge pull request #91 from werivik/ole
+      responsiv footer
+      ive made an share function
+
+Weronika Vik (15):
+      Initial commit
+      Update README.md
+      Merge pull request #53 from werivik/weronika
+      Merge pull request #59 from werivik/weronika
+      Merge pull request #64 from werivik/bigBoyBranch-createEvent-componets-organize-indexFileForEachComponen
+      Merge branch 'main' into weronika
+      Merge pull request #69 from werivik/weronika
+      Merge pull request #70 from werivik/weronika
+      Merge pull request #71 from werivik/weronika
+      Merge branch 'main' into weronika
+      Merge pull request #81 from werivik/weronika
+      Merge pull request #82 from werivik/weronika
+      Merge pull request #83 from werivik/weronika
+      Merge pull request #88 from werivik/weronika
+      Merge pull request #90 from werivik/weronika
+
+werivik (74):
+      a new beginning
+      Home Banner
+      Update Home.module.css
+      Home: Map with Bar list
+      Home: Popular Event List
+      Home: Popular Events
+      Update package.json
+      merge main to my branch
+      trying to fix the firebase
+      made a header
+      Update Header.js
+      login page
+      login page
+      successfull register & login
+      successfull fetch of All Events
+      ish styled Home: All Events
+      home: Events this week
+      Update Home.js
+      Single Event page
+      EventDetails page Styled
+      added comments
+      updated package.json
+      Merge branch 'main' of https://github.com/werivik/Agency2 into weronika
+      Create package-lock.json
+      trying to fix this nightmare
+      trying to fix img bug
+      trying still to fix the img bug
+      fixed the bug
+      basic af contact us page
+      basic contact page styling
+      fixing event details page
+      Update EventDetails.module.css
+      fixed Home.jsx page
+      Update Home.jsx
+      added a file to gitignore
+      Create index.jsx
+      Update Home.module.css
+      Update Home.module.css
+      Short Month Names
+      Update Home.module.css
+      Update Home.module.css
+      removed body styling for now
+      added events link to header and changes Login style
+      added date function to Home Banner Events
+      Update package.json
+      styled Contact page
+      fixed Home and Overflow issue
+      login Options
+      Update Header.jsx
+      starting to add the "logged in" function to Header
+      redirected Login to Home page
+      User page Content + Styling
+      Update User.module.css
+      UserPage: Sign out button
+      Update Username and Image function
+      updated Header
+      styled Edit Profile
+      updated Home + index.css
+      Update Home.module.css
+      added Links in Home to Events
+      Update Home.module.css
+      Update Home.module.css
+      fixed Footer Issue + Contact Page
+      removed index.jsx file, added hover
+      Update App.jsx
+      Update App.jsx
+      netlify issue
+      PLease WORK
+      Fix Netlify build command
+      Delete index.jsx
+      Update netlify.toml
+      removed LoginOptions
+      Update netlify.toml
+      rename LoginOptions to LoginDirection
+

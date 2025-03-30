@@ -1,5 +1,5 @@
 .eventDetailsSection {
-    width: 100%;
+    width: auto;
     margin-top: 110px;
     display: flex;
     justify-content: center;
@@ -13,7 +13,7 @@
 }
 
 .edContent {
-    width: 100%;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -106,6 +106,7 @@
     background-color: #fff;
     border-radius: 25px;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: auto;
 }
 
 /* ✅ Write comment box */
@@ -177,12 +178,13 @@
 
 .commentContainer {
     width: 100%;
-    display: flex;
     flex-direction: column;
     gap: 10px;
     background-color: #f9f9f9;
     padding: 20px;
     border-radius: 15px;
+    display: flex;
+    align-self: center;
 }
 
 .commentHeader {
