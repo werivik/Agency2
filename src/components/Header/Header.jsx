@@ -7,6 +7,7 @@ import headerLogo from "/media/logo/Logo.png";
 import defaultProfile from "/media/gallery/defaultprofile.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 
+
 function Header() {
   const [toggled, setToggled] = useState(false);
 

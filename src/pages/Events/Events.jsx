@@ -260,7 +260,6 @@ const Home = () => {
 
     return (
       <div className={styles.container}>
-        <header className={styles.header}>
           <h1>Explore Events</h1>
           <div className={styles.controls}>
             <input
@@ -311,7 +310,6 @@ const Home = () => {
               </div>
             )}
           </div>
-        </header>
         
         <main className={styles.eventGrid}>
           {displayedEvents.length > 0 ? (
