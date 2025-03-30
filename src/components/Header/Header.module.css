@@ -13,7 +13,8 @@ header {
 }
 
 nav {
-    width: 95%;
+    width: 100%;
+    padding: 0 1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -114,17 +115,13 @@ ul a:hover {
     .hamburgerMenu nav{
         display: flex;
         flex-direction: column;
+        
     }
 
 
     
 }
   
-
-
-
-
-
 
 
 .menu {
@@ -134,8 +131,6 @@ ul a:hover {
   /* Show menu when toggled */
   .menuActive {
     display: block;
-    /* Optional: Add some animations or transitions */
-    transition: all 0.3s ease-in-out;
     background-color: #2B266F;
     max-width: 300px;
     padding: 2rem;
