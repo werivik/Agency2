@@ -81,3 +81,68 @@ ul a:hover {
     transition: 0.25s;
     border-color: #e07b5f;
 }
+
+
+.hamburgerMenu{
+    display: none;
+}
+
+.hamburgerIcon{
+    color: white;
+    display: flex;
+    justify-content: end;
+    margin: 1rem;
+    font-size: 2rem;
+}
+
+
+.hamburgerIcon:hover{
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+
+    .desktopNav{
+        display: none;
+    }
+
+    .hamburgerMenu{
+        display: block;
+    }
+
+    .hamburgerMenu nav{
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    
+}
+  
+
+
+
+
+
+
+
+.menu {
+    display: none;
+  }
+  
+  /* Show menu when toggled */
+  .menuActive {
+    display: block;
+    /* Optional: Add some animations or transitions */
+    transition: all 0.3s ease-in-out;
+    background-color: #2B266F;
+    max-width: 300px;
+    padding: 2rem;
+  }
+
+  .menuActive a{
+    width: 200px;
+    margin: 1rem 0;
+  }
+
