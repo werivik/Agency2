@@ -14,8 +14,6 @@ footer {
     padding: 1rem;
 }
 
-
-
 .textContainer{
     padding: 1rem;
     color: #B6B6B6;
@@ -67,3 +65,14 @@ footer {
     border: 1px solid ;
 }
 
+@media (max-width: 768px) {
+    .topTextContainer{
+        width: 80%;
+    }
+    .underTextContainer{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    
+}
+  

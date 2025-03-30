@@ -4,6 +4,7 @@ import { db, database, ref, get, set } from "../../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import styles from './EventDetails.module.css';
+import { FaRegShareFromSquare } from "react-icons/fa6";
 
 import defaultImage from '/media/gallery/bergensentrum.jpg';
 
@@ -17,6 +18,14 @@ function EventDetails() {
   const [dataSource, setDataSource] = useState(null); // 'firestore' or 'realtime'
 
   const auth = getAuth();
+
+  //function to get url from the current site
+  function shareLink(){
+    window.location.href
+    navigator.clipboard.writeText(window.location.href);
+    alert("Copied the link, share it!");
+  };
+
 
   useEffect(() => {
     const fetchEventDetails = async () => {
@@ -189,7 +198,10 @@ function EventDetails() {
 
             <div className={styles.edRight}>
               <div className={styles.edInfo}>
-                <h1 className={styles.edTitle}>{event.title}</h1>
+                <div className={styles.containerH1icon}>
+                  <h1 className={styles.edTitle}>{event.title}</h1>
+                  <i onClick={shareLink} className={styles.iconShare}><FaRegShareFromSquare /></i>
+                </div>
                 
                 <div className={styles.eventMeta}>
                   <div className={styles.eventDate}>
