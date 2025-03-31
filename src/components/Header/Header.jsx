@@ -80,8 +80,8 @@ function Header() {
       </nav>
 
       {/* Hamburger Menu */}
-      <div className={styles.hamburgerMenu}>
-        <i ref={boxRef} onClick={menuDisplay} className={styles.hamburgerIcon}>
+      <div ref={boxRef} className={styles.hamburgerMenu}>
+        <i  onClick={menuDisplay} className={styles.hamburgerIcon}>
           <RxHamburgerMenu />
         </i>
 
