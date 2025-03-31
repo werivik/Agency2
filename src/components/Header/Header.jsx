@@ -81,7 +81,7 @@ function Header() {
 
       {/* Hamburger Menu */}
       <div className={styles.hamburgerMenu}>
-        <i ref={boxRef} onClick={menuDisplay} className={styles.hamburgerIcon}>
+        <i  onClick={menuDisplay} className={styles.hamburgerIcon}>
           <RxHamburgerMenu />
         </i>
 
