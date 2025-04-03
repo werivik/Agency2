@@ -84,3 +84,58 @@
     flex-direction: column;
     gap: 15px;
 }
+
+@media (max-width: 768px) {
+
+
+    .ContactInfo{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ContactInfo div{
+        margin: 1.5rem  0;
+        line-height: 1;
+    }
+    
+    .contactBorder{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .contactLeft{
+        width: auto;
+    }
+    .contactLeft img{
+        border-radius: 50px;
+        height: auto;
+    }
+    .contactRight{
+        width: auto;
+        margin: 0 1rem;
+    }
+    .contactContent{
+        padding: 1rem;
+    }
+
+    .contactRight h1{
+        font-size: 3rem;
+        padding: 0 1rem;
+    }
+
+    .contactContent p{
+        margin-bottom: 1.5rem;
+    }
+
+    .contactBorder{
+        margin: 1rem;
+    }
+
+    .contactSection{
+        margin-top: 100px;
+    }
+    body{
+        background-color: #2B266F;
+    }
+}
+  
